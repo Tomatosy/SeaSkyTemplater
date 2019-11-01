@@ -1,0 +1,257 @@
+<!-- http://localhost:4200/#/Menu/MenuManage -->
+<section class="content">
+  <div class="row">
+    <div [class]="isCollapse? 'col-md-1 col-lg-1':'col-md-5 col-lg-5'">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title"><span *ngIf="!isCollapse">菜单</span>&nbsp;
+          </h3>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary btn-px mr-2" data-toggle="modal" data-target="#add"
+              (click)="onAddMenu(menuInfo)"><i class="fa fa-plus"></i> 添加主菜单</button>
+          </div>
+          <div class="pull-right box-tools">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" (click)="onCollapse()">
+              <i [class]="isCollapse? 'fa fa-angle-right':'fa fa-angle-left'"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body">
+          <app-tree [items]="menuTree" [isShowCheckBox]="false" (valueChange)="onTreeSelect($event)"
+            [canSelectParentNode]="true"></app-tree>
+        </div>
+      </div>
+    </div>
+    <div [class]="isCollapse? 'col-md-11 col-lg-11':'col-md-7 col-lg-7'" *ngIf="menuInfo">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">{{menuInfo.menuName}}菜单
+          </h3>
+          <div class="pull-right box-tools">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary btn-px mr-2" data-toggle="modal" data-target="#add"
+                  (click)="onAddMenu(menuInfo)"><i class="fa fa-plus"></i> 添加子菜单</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>菜单编号
+                </label>
+                <input type="text" [disabled]="isRootMenu" class="form-control radius" [(ngModel)]="menuInfo.menuNo"
+                  placeholder="请输入菜单编号">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>菜单名称</label>
+                <input type="text" [disabled]="isRootMenu" class="form-control radius" [(ngModel)]="menuInfo.menuName"
+                  placeholder="请输入菜单名称">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>上级菜单</label>
+                <app-dropdown-treeview-select [items]="menuTree" [canSelectParentNode]="true"
+                  (valueChange)="dropdownValueChange($event)" [value]="menuInfo.parentID">
+                  <!-- (valueChange)="dropdownValueChange($event)" [value]="menuInfo.parentID" [disabled]="isRootMenu"> -->
+                </app-dropdown-treeview-select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>菜单图标</label>
+                <input type="text" class="form-control radius" [(ngModel)]="menuInfo.menuIcon" placeholder="请输入菜单图标">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>路由地址</label>
+                <input type="text" class="form-control radius" [(ngModel)]="menuInfo.routingUrl" placeholder="请输入路由地址">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>路由地址参数</label>
+                <input type="text" class="form-control radius" [(ngModel)]="menuInfo.urlParameter"
+                  placeholder="请输入路由地址参数">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>跳转地址</label>
+                <input type="text" class="form-control radius" [(ngModel)]="menuInfo.redirectUrl" placeholder="请输入跳转地址">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12">
+              <div class="col-md-3 col-lg-3">
+                <div class="pretty p-icon p-smooth">
+                  <input type="checkbox" [(ngModel)]="menuInfo.isNewWindow" />
+                  <div class="state p-success">
+                    <i class="icon fa fa-check"></i>
+                    <label>是否打开新页面</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 col-lg-5">
+                <div class="pretty p-icon p-smooth">
+                  <!-- <input type="checkbox" [(ngModel)]="menuInfo.isSystem" disabled/> -->
+                  <input type="checkbox" [(ngModel)]="menuInfo.isSystem" />
+                  <div class="state p-success">
+                    <i class="icon fa fa-check"></i>
+                    <label>是否初始化（系统）菜单</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-lg-3">
+                <div class="pretty p-icon p-smooth">
+                  <input type="checkbox" [(ngModel)]="menuInfo.isUse" />
+                  <div class="state p-success">
+                    <i class="icon fa fa-check"></i>
+                    <label>是否启用</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box-footer">
+          <div class="pull-right">
+            <button type="button" class="btn btn-success btn-px mr-2" (click)="onMenuSave()"><i class="fa fa-check"></i>
+              保存</button>
+            <button type="button" class="btn btn-danger btn-px mr-2" (click)="onDeleteMenu(menuInfo.menuID)"><i
+                class="fa fa-trash-o"></i> 删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="modal fade" id="add">
+  <div class="modal-dialog" *ngIf="addmenuInfoInputModel">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">添加子菜单</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>菜单编号</label><span style="color: Red;">*</span>
+              <input type="text" class="form-control radius" id="menuNo" name="menuNo" placeholder="请输入菜单编号"
+                [(ngModel)]="addmenuInfoInputModel.menuNo">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>菜单名称 </label> <span style="color: Red;">*</span>
+              <input type="text" class="form-control radius" id="menuName" name="menuName" placeholder="请输入菜单名称"
+                [(ngModel)]="addmenuInfoInputModel.menuName">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>上级菜单</label>
+              <app-dropdown-treeview-select [items]="menuTree" [canSelectParentNode]="true"
+                (valueChange)="dropdownValueChange($event)" [value]="addmenuInfoInputModel.parentID">
+                <!-- (valueChange)="dropdownValueChange($event)" [value]="addmenuInfoInputModel.parentID" [disabled]="true"> -->
+              </app-dropdown-treeview-select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>菜单图标</label>
+              <input type="text" id="menuIcon" name="menuIcon" class="form-control radius" placeholder="请输入菜单图标"
+                [(ngModel)]="addmenuInfoInputModel.menuIcon">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>路由地址</label>
+              <input type="text" id="routingUrl" name="routingUrl" class="form-control radius" placeholder="请输入路由地址参数"
+                [(ngModel)]="addmenuInfoInputModel.routingUrl">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>路由地址参数</label>
+              <input type="text" id="urlParameter" name="urlParameter" class="form-control radius"
+                placeholder="请输入路由地址参数" [(ngModel)]="addmenuInfoInputModel.urlParameter">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="form-group">
+              <label>跳转地址</label>
+              <input type="text" id="redirectUrl" name="redirectUrl" class="form-control radius" placeholder="请输入跳转地址"
+                [(ngModel)]="addmenuInfoInputModel.redirectUrl">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <div class="col-md-3 col-lg-3">
+              <div class="switch switch-small">
+                <input type="checkbox" id="isNewWindow" [(ngModel)]="addmenuInfoInputModel.isNewWindow"
+                  name="isNewWindow" />
+              </div>
+              <label>是否打开新页面</label>
+            </div>
+            <div class="col-md-5 col-lg-5">
+              <div class="switch switch-small">
+                <input type="checkbox" [(ngModel)]="addmenuInfoInputModel.isSystem" id="isSystem" name="isSystem" />
+                <!-- disabled="disabled" /> -->
+              </div><label>是否初始化（系统）菜单</label>
+            </div>
+            <div class="col-md-3 col-lg-3">
+              <div class="switch switch-small">
+                <input type="checkbox" [(ngModel)]="addmenuInfoInputModel.isUse" id="isUse" name="isUse" />
+              </div><label>是否启用</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="onAddMenuSave()">确认</button>
+        <button type="button" class="btn" data-dismiss="modal" aria-label="Close">取消</button>
+      </div>
+    </div>
+  </div>

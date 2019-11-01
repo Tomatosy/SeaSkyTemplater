@@ -1,0 +1,129 @@
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+.m-0{margin:0 !important}
+
+.m-1{margin:0.25rem !important}
+
+.m-2{margin:0.5rem !important}
+
+.m-3{margin:1rem !important}
+
+.m-4{margin:1.5rem !important}
+
+.m-5{margin:3rem !important}
+
+.m-auto{margin:auto !important}
+
+.p-0{padding:0 !important}
+
+.p-1{padding:0.25rem !important}
+
+.p-2{padding:0.5rem !important}
+
+.p-3{padding:1rem !important}
+
+.p-4{padding:1.5rem !important}
+
+.p-5{padding:3rem !important}
+
+.p-auto{padding:auto !important}
+
+.mt-2{margin-top: 0.5rem !important}
+
+.mb-2{margin-bottom: 0.5rem !important}
+
+.ml-2{margin-left: 0.5rem !important}
+
+.mr-2{margin-right: 0.5rem !important}
+
+.mt-20{margin-top: 20rem !important}
+
+.mt-15{margin-top: 15rem !important}
+
+.mx-2{margin-right: 0.5rem !important;margin-left: 0.5rem !important}
+
+.my-2{margin-top: 0.5rem !important;margin-bottom: 0.5rem !important}
+
+.pt-2{padding-top: 0.5rem !important}
+
+.pb-2{padding-bottom: 0.5rem !important}
+
+.pl-2{padding-left: 0.5rem !important}
+
+.pr-2{padding-right: 0.5rem !important}
+
+.px-2{padding-right: 0.5rem !important;padding-left: 0.5rem !important}
+
+.py-2{padding-top: 0.5rem !important;padding-bottom: 0.5rem !important}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+}
+.col-12 {
+  width: 100%;
+}
+.col-11 {
+  width: 91.66666667%;
+}
+.col-10 {
+  width: 83.33333333%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-8 {
+  width: 66.66666667%;
+}
+.col-7 {
+  width: 58.33333333%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-5 {
+  width: 41.66666667%;
+}
+.col-4 {
+  width: 33.33333333%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-2 {
+  width: 16.66666667%;
+}
+.col-1 {
+  width: 8.33333333%;
+}
+
+.radius{border-radius: 4px !important;}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color:#fff;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius:2em;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color:rgba(54,127,169,0.8);
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius:2em;
+  }
+  body  {
+    scrollbar-arrow-color: #fff; /**//*三角箭头的颜色*/ 
+    scrollbar-face-color: rgba(54,127,169,0.8); /**//*立体滚动条的颜色*/ 
+    scrollbar-3dlight-color: #fff; /**//*立体滚动条亮边的颜色*/ 
+    scrollbar-highlight-color: transparent; /**//*滚动条空白部分的颜色*/ 
+    scrollbar-shadow-color: #fff; /**//*立体滚动条阴影的颜色*/ 
+    scrollbar-darkshadow-color: #fff; /**//*立体滚动条强阴影的颜色*/ 
+    scrollbar-track-color: transparent; /**//*立体滚动条背景颜色*/ 
+    scrollbar-base-color: transparent; /**//*滚动条的基本颜色*/ 
+  }

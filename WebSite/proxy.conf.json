@@ -1,0 +1,16 @@
+{
+  "/SyTemplater": {
+    "target": "http://localhost:12345",
+    "target_cache": "http://192.168.1.53",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/Cache_File": {
+    "target": "http://localhost:12345/",
+    "target_cache": "http://192.168.1.53/",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

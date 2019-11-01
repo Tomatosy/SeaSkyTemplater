@@ -1,0 +1,4119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SeaSky.StandardLib.FrameWork</name>
+    </assembly>
+    <members>
+        <member name="T:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute">
+            <summary>
+            Model类字段辅助属性
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_parameterPrefix">
+            <summary>
+            参数前缀
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_prefix">
+            <summary>
+            字段前缀
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_suffix">
+            <summary>
+            字段后缀
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_columnName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_isIdentity">
+            <summary>
+            是否自动增量
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_isKey">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_parameterName">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_parameterSize">
+            <summary>
+            参数长度
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_sqlDbType">
+            <summary>
+            SqlServer数据类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_oleDbType">
+            <summary>
+            OleDb数据类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_DBType">
+            <summary>
+            Oracle,mySql数据类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_orderIndex">
+            <summary>
+            排序先后
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_orderAsc">
+            <summary>
+            排序方式
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_isMainKey">
+            <summary>
+            是否主列（子列）
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_isParentKey">
+            <summary>
+            是否父列
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_field">
+            <summary>
+            字段反射对象
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_fieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.m_likeEqual">
+            <summary>
+            是否使用Like比较
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.#ctor">
+            <summary>
+            构造字段辅助属性
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.Data.OleDb.OleDbType,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            构造OleDb类型字段辅助属性
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="columnName">对应数据库字段名</param>
+            <param name="isIdentity">是否自动增量，true为是，false为否</param>
+            <param name="isKey">是否主键，true为是，false为否</param>
+            <param name="oleDbType">OleDb数据类型</param>
+            <param name="parameterSize">参数长度</param>
+            <param name="orderIndex">排序先后，-1为不排序</param>
+            <param name="orderAsc">排序方式，true为降序Asc，false为升序Desc</param>
+            <param name="isMainKey">是否主列（子列），true为是，false为否</param>
+            <param name="isParentKey">是否父列，treu为是，false为否</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.Data.SqlDbType,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            构造OleDb类型字段辅助属性
+            </summary>
+            <param name="fieldName">字段名</param>
+            <param name="columnName">对应数据库字段名</param>
+            <param name="isIdentity">是否自动增量，true为是，false为否</param>
+            <param name="isKey">是否主键，true为是，false为否</param>
+            <param name="sqlDbType">SqlServer数据类型</param>
+            <param name="parameterSize">参数长度</param>
+            <param name="orderIndex">排序先后，-1为不排序</param>
+            <param name="orderAsc">排序方式，true为降序Asc，false为升序Desc</param>
+            <param name="isMainKey">是否主列（子列），true为是，false为否</param>
+            <param name="isParentKey">是否父列，treu为是，false为否</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.LikeEqual">
+            <summary>
+            获取或设置是否通过Like来查询
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.DefaultValue">
+            <summary>
+            获取或设置默认值
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.ColumnName">
+            <summary>
+            获取或设置对应数据库列名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.IsIdentity">
+            <summary>
+            获取或设置是否自动增量
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.IsKey">
+            <summary>
+            获取或设置是否主键
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.OrderIndex">
+            <summary>
+            获取或设置排序先后
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.OrderAsc">
+            <summary>
+            获取或设置排序方式，true为降序Asc，false为升序Desc
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.OrderDirection">
+            <summary>
+            获取排序方式SQL描述
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.ParameterName">
+            <summary>
+            获取或设置参数名称
+            若为Null,获取的参数名称为参数前缀+对应数据列列名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.ParameterSize">
+            <summary>
+            获取或设置参数大小
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.SqlDbType">
+            <summary>
+            获取或设置SqlServer数据类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.OleDbType">
+            <summary>
+            获取或设置OleDb数据类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.DBType">
+            <summary>
+            获取或设置Oracle,mySql数据类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.ColumnNameFix">
+            <summary>
+            获取对应字段名在SQL中的描述，字段前缀+字段名+字段后缀
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.FieldName">
+            <summary>
+            获取或设置字段名称
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.IsMainKey">
+            <summary>
+            获取或设置是否主列（子列）
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.IsParentKey">
+            <summary>
+            获取或设置是否父列
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.ParameterPrefix">
+            <summary>
+            设置参数前缀
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.Prefix">
+            <summary>
+            设置字段前缀
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.Suffix">
+            <summary>
+            设置字段后缀
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute.Field">
+            <summary>
+            获取或设置反射字段
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute">
+            <summary>
+            Model，类级别辅助属性
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.m_tableName">
+            <summary>
+            对应数据表名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.m_tableDesc">
+            <summary>
+            对应数据表描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.m_declaredOnly">
+            <summary>
+            是否只处理定义的对象
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.#ctor(System.String)">
+            <summary>
+            构造类属性
+            </summary>
+            <param name="tableName">对应数据表名</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.#ctor(System.String,System.String)">
+            <summary>
+            构造类属性
+            </summary>
+            <param name="tableName">对应数据表名</param>
+            <param name="tableDesc">对应数据表描述</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.TableDesc">
+            <summary>
+            获取或设置对应数据描述
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.TableName">
+            <summary>
+            获取或设置对应数据表名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.DBTableInfoAttribute.DeclaredOnly">
+            <summary>
+            获取或设置是否只处理定义的对象
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyAttribute.ModelAttribute">
+            <summary>
+            Model属性汇总集合
+            包含字段属性集合，类属性
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyAttribute.ModelAttribute.m_attrTable">
+            <summary>
+            Model类级别的辅助属性
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.ModelAttribute.AttrTable">
+            <summary>
+            获取或设置Model类级别的辅助属性
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyAttribute.ModelAttribute.OrderBy">
+            <summary>
+            获取字段属性集合生成OrderBy语句
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyAttribute.ModelAttribute.Sort">
+            <summary>
+            对字段的辅助属性根据OrderIndex排序，用户生成OrderBy语句
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.CollectionBase`1">
+            <summary>
+            Model集合泛型
+            </summary>
+            <typeparam name="T">泛型Model类型</typeparam>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.AddRange(`0[])">
+            <summary>
+            添加Model对象数组
+            </summary>
+            <param name="values">Model对象数组</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.AddRange(System.Collections.ObjectModel.Collection{`0})">
+            <summary>
+            添加Model对象集合
+            </summary>
+            <param name="values">Model对象集合</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.RemoveRange(`0[])">
+            <summary>
+            移除Model对象数组
+            </summary>
+            <param name="values">Model对象数组</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.RemoveRange(System.Collections.ObjectModel.Collection{`0})">
+            <summary>
+            移除Model对象集合
+            </summary>
+            <param name="values">Model对象集合</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.AddItem(`0)">
+            <summary>
+            添加单个Model对象
+            </summary>
+            <param name="item">Model对象</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.RemoveItem(`0)">
+            <summary>
+            移除单个Model对象
+            </summary>
+            <param name="item">Model对象</param>
+            <returns>移除结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.CollectionBase`1.RemoveItemAt(System.Int32)">
+            <summary>
+            移除单个Model对象
+            </summary>
+            <param name="index">Model对象序号</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.DALBase">
+            <summary>
+            DAL基类    
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.DALBase.m_DatabaseMode">
+            <summary>
+            数据库连接方式
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.DALBase.m_likeMode">
+            <summary>
+            sql like模式
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase.Operater">
+            <summary>
+            数据库操作人
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.GetOperater">
+            <summary>
+            获取数据库操作人(需要子类实现)
+            </summary>
+            <returns>操作人</returns>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase.IsLikeMode">
+            <summary>
+            是否开启like
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.DALBase.m_dataHelper">
+            <summary>
+            数据库访问对象
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.#ctor(System.String,SeaSky.StandardLib.MyBaseClass.DatabaseMode)">
+            <summary>
+            构造DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+            <param name="dbMode">数据库类型</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.#ctor(System.String)">
+            <summary>
+            构造DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.#ctor">
+            <summary>
+            构建DAL基类
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase.Internal_DataHelper">
+            <summary>
+            获取或设置数据库连接对象
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.InitialDataHelper(System.String)">
+            <summary>
+            根据链接字符串创建数据库连接对象
+            </summary>
+            <param name="connName">数据库连接名</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.BeginLikeMode">
+            <summary>
+            开启模糊查询
+            </summary>
+            <returns>模糊查询模式</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.ExecuteProvidedSql(System.String)">
+            <summary>
+            执行提供的自定义sql
+            </summary>
+            <param name="sql">自定义sql</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.ExecuteProvidedSql(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行提供的自定义sql
+            </summary>
+            <param name="sql">自定义sql</param>
+            <param name="parms">参数</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.ExecuteStoredProc(System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase.ExecuteStoredProc(System.String,System.Object[])">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parms">存储过程参数</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.DALBase`1">
+            <summary>
+            DAL基（数据库Model）
+            </summary>
+            <typeparam name="Model">数据库表对应的Model类型</typeparam>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`1.#ctor">
+            <summary>
+            构建DAL基类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`1.#ctor(System.String)">
+            <summary>
+            根据连接字符串构建DAL基类
+            </summary>
+            <param name="connName">连接名</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`1.#ctor(System.String,SeaSky.StandardLib.MyBaseClass.DatabaseMode)">
+            <summary>
+            构造DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+            <param name="dbMode">数据库类型</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.DALBase`2">
+            <summary>
+            DAL基（数据库Model,返回OutputModel）
+            </summary>
+            <typeparam name="Model">数据库表对应的Model类型</typeparam>
+            <typeparam name="OutputModel">返回的OutputModel类型</typeparam>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.DALBase`2.m_table">
+            <summary>
+            存放对应数据库表结构信息
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.#ctor">
+            <summary>
+            构造DAL基类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.#ctor(System.String)">
+            <summary>
+            根据数据库连接字符串构建DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.#ctor(System.String,SeaSky.StandardLib.MyBaseClass.DatabaseMode)">
+            <summary>
+            构造DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+            <param name="dbMode">数据库类型</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase`2.Table">
+            <summary>
+            获取或设置对应数据库表结构信息
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase`2.ModelAttributes">
+            <summary>
+            获取Model辅助属性集合
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase`2.DataHelper">
+            <summary>
+            获取或设置数据库连接对象
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DALBase`2.OrderBy">
+            <summary>
+            获取或设置排序子句
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.GetSchemaTable">
+            <summary>
+            获取数据库表结构信息
+            </summary>
+            <returns>数据库表结构信息</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.Initial(SeaSky.StandardLib.MyAttribute.ModelAttribute)">
+            <summary>
+            如果不想使用从Model获得的属性，则使用自定义的属性初始化
+            </summary>
+            <param name="table">自定义属性</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.DeleteWithModel(`0[])">
+            <summary>
+            根据model的值作为条件删除，model里每一个非null字段都会作为删除条件
+            支持模糊条件
+            </summary>
+            <param name="models">作为条件的model集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.DeleteWithIdentity(System.Int64[])">
+            <summary>
+            根据自增字段作为删除条件
+            </summary>
+            <param name="identitys">自动增量值集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.DeleteWithKeys(`0[])">
+            <summary>
+            根据Key字段作为删除条件，model里的其他任何值均不会作为删除条件，只有标识为Key的字段才会作为删除条件
+            </summary>
+            <param name="models">作为条件的model集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.DeleteAll">
+            <summary>
+            删除全部记录
+            </summary>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.TruncateTable">
+            <summary>
+            快速清空表内全部数据
+            不经过日志处理，Truncate Table 慎用
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.Insert(`0)">
+            <summary>
+            把model里的除了标识为Identity,Timestamp之外的所有值插入数据库
+            </summary>
+            <param name="model">需要插入数据库的model</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.InsertAndReturn(`0)">
+            <summary>
+            把model里的除了标识为Identity,Timestamp之外的所有值插入数据库
+            </summary>
+            <param name="model">需要插入数据库的model</param>
+            <returns>插入后的结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.InsertCol(`0[])">
+            <summary>
+            把model集合里的model每个除了标识为Identity,Timestamp之外的所有值插入数据库
+            </summary>
+            <param name="models">需要插入数据库的</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.List">
+            <summary>
+            以集合方式返回Model类型所对应数据库表的所有数据
+            </summary>
+            <returns>表内所有数据的Model集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.List(`0)">
+            <summary>
+            根据model的值作为条件查询条件，model里每一个非null字段都会作为查询条件
+            如果想查询所有记录，则model为null即可
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合查询条件的数据集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.List(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，查询结果以集合形式返回
+            </summary>
+            <param name="sql">自定义sql语句</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.ListTable">
+            <summary>
+            以数据表方式返回Model类型所对应数据库表的所有数据
+            </summary>
+            <returns>表内所有数据的DataTable</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.ListTable(`0)">
+            <summary>
+            根据model的值查询，model里每一个非null字段都会作为查询条件
+            如果想查询所有记录，则model为null即可
+            支持模糊查询
+            </summary>
+            <param name="model">作为查询条件的model</param>
+            <returns>符合查询条件的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.ListTable(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，查询结果以数据表形式返回
+            </summary>
+            <param name="sql">自定义sql语句</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.ListDataSet(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，查询结果以DataSet形式返回
+            </summary>
+            <param name="sql">自定义sql语句</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的数据表集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.Search(`0,System.Boolean)">
+            <summary>
+            根据model的值和操作种类进行搜索model集合，model里每一个非null字段都会作为查询条件
+            支持模糊查询
+            </summary>
+            <param name="model">作为查询条件的model</param>
+            <param name="or">操作符，true为or，false为and</param>
+            <returns>符合查询条件的数据集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.SelectWithModel(`0)">
+            <summary>
+            根据model的值作为查询条件,model里每一个非null字段都会作为查询条件
+            返回符合条件的第一个model
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合查询条件的第一个model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.SelectWithIdentity(System.Int64)">
+            <summary>
+            以自动增量字段为查询条件，获取符合条件model
+            </summary>
+            <param name="identity">作为条件的自动增量</param>
+            <returns>符合条件model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.SelectWithKeys(`0)">
+            <summary>
+            以主键字段为查询条件，model中的非主键字段均不作为查询条件，获取符合条件model
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合条件model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.GetIdentity">
+            <summary>
+            获取Model对应的数据库表内最新生成的自动增量值
+            </summary>
+            <returns>最新生成的自动增量值</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.GetGuid">
+            <summary>
+            通过SQL生成Guid，与Model无关
+            </summary>
+            <returns>Guid</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.GetServerTime">
+            <summary>
+            通过SQL获取数据库服务器的当前时间，与Model无关
+            </summary>
+            <returns>数据库服务器的当前时间</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.GetCount">
+            <summary>
+            获取Model对应的数据库表内所有记录数合计
+            </summary>
+            <returns>记录数合计</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.GetCount(`0)">
+            <summary>
+            根据model的值作为查询条件,model里每一个非null字段都会作为查询条件，
+            获取Model对应的数据库表内符合条件的记录数合计
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>记录数合计</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.Select(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，返回满足条件的第一个Model
+            </summary>
+            <param name="sql">自定义sql</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithModel(`0,`0)">
+            <summary>
+            根据condition把value里的值更新，condition中所有不为null的字段都将作为查询条件
+            而value中的所有不为null的字段将会被更新
+            支持模糊查询
+            </summary>
+            <param name="value">需要更新的值</param>
+            <param name="condition">更新时的条件</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithModelAndReturn(`0,`0)">
+            <summary>
+            根据condition把value里的值更新，condition中所有不为null的字段都将作为查询条件
+            而value中的所有不为null的字段将会被更新
+            支持模糊查询
+            </summary>
+            <param name="value">需要更新的值</param>
+            <param name="condition">更新时的条件</param>
+            <returns>更新后的值集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithIdentity(`0[])">
+            <summary>
+            根据自增字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除自动增量字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithIdentityAndReturn(`0)">
+            <summary>
+            根据自增字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除自动增量字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="model">要更新的值</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithIdentityAndReturn(`0[])">
+            <summary>
+            根据自增字段值更新，model里的其他任何值均不会作为更新条件
+            而model集合中除自动增量字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>更新后的结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithKeys(`0[])">
+            <summary>
+            根据主键字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除主键字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithKeysAndReturn(`0)">
+            <summary>
+            根据主键字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除主键字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="model">要更新的值</param>
+            <returns>更新后的值</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALBase`2.UpdateWithKeysAndReturn(`0[])">
+            <summary>
+            根据主键字段值更新，model里的其他任何值均不会作为更新条件
+            而model集合中除主键字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>更新后的值</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.DALPageBase`2">
+            <summary>
+            用于分页的DAL基
+            </summary>
+            <typeparam name="Model">继承于BasePageModel数据库Model</typeparam>
+            <typeparam name="OutputModel">返回的OutputModel</typeparam>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALPageBase`2.#ctor">
+            <summary>
+            构造DAL基类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALPageBase`2.#ctor(System.String)">
+            <summary>
+            根据数据库连接字符串构建DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALPageBase`2.#ctor(System.String,SeaSky.StandardLib.MyBaseClass.DatabaseMode)">
+            <summary>
+            构造DAL基类
+            </summary>
+            <param name="connName">数据库连接名</param>
+            <param name="dbMode">数据库类型</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALPageBase`2.ListPage(`0)">
+            <summary>
+            根据model的值作为查询条件,model里每一个非null字段都会作为查询条件
+            获取分页的数据
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合查询条件的分页数据集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DALPageBase`2.ListPage(System.String,System.Int32,System.Int32,System.Collections.ObjectModel.Collection{System.Data.IDataParameter},System.String,System.String)">
+            <summary>
+            自定义sql查询，查询结果以分页形式返回
+            </summary>
+            <param name="sql">自定义原始sql语句</param>
+            <param name="parms">参数</param>
+            <param name="orderBy">排序语句,例: "ORDER BY GmtUpdateDate DESC"</param>
+            <param name="pageSize">每页显示数</param>
+            <param name="pageNO">页数</param>
+            <param name="preSql">前置sql</param>
+            <returns></returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.DatabaseMode">
+            <summary>
+            数据库种类枚举
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.DatabaseMode.SqlClient">
+            <summary>
+            SQLServer
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.DbDataHelper">
+            <summary>
+            数据库操作对象（抽象类）
+            具体的数据库操作类通过此类派生
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.#ctor(System.String)">
+            <summary>
+            构造DbDataHelper
+            </summary>
+            <param name="connName">数据库连接名</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ParameterPrefix">
+            <summary>
+            获取SQL参数前缀，默认为@
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DbDataHelper.Prefix">
+            <summary>
+            获取SQL字段前缀，默认为[
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DbDataHelper.Suffix">
+            <summary>
+            获取SQL字段后缀，默认为]
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DbDataHelper.DataHelper">
+            <summary>
+            获取数据库操作对象，需实现
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.DbDataHelper.Tables">
+            <summary>
+            获取或设置数据库表结构集合，需实现
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.GetTableInformation(System.Type)">
+            <summary>
+            根据Model类返回对应的数据库表结构信息
+            </summary>
+            <param name="t">Model类的类型</param>
+            <returns>对应的数据库表结构信息</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteForIdentity(System.String)">
+            <summary>
+            获取指定数据表内新的自动增量
+            </summary>
+            <param name="tableName">数据表名</param>
+            <returns>自动增量</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回影响记录行数
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回影响记录行数
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteNonQuery(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回影响记录行数
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteNonQuery(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回影响记录行数
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataTable(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据表
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataTable(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据表
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataTable(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据表
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataTable(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据表
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataSet(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据集
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataSet(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据集
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataSet(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据集
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.FillDataSet(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据集
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReader(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReader(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReader(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReader(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReaderForKeyInfo(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReaderForKeyInfo(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReaderForKeyInfo(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteReaderForKeyInfo(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteScalar(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.ExecuteScalar(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.Parameter(System.String,System.Object,System.String)">
+            <summary>
+            创建SQL参数类型
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="p_dbType">数据库数据类型</param>
+            <param name="srcColumn">数据库列名</param>
+            <returns>SQL参数类型</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.CloneParameter(System.Data.IDataParameter)">
+            <summary>
+            复制SQL参数类型
+            </summary>
+            <param name="parm">要复制的参数对象</param>
+            <returns>复制后的参数对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.DbType(SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute)">
+            <summary>
+            根据Model类中的字段属性获取对应的数据库数据类型
+            </summary>
+            <param name="f">Model类中的字段属性</param>
+            <returns>对应的数据库数据类型</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.GetAttributes(System.Type)">
+            <summary>
+            根据Model类型，获取类级别属性
+            </summary>
+            <param name="t">Model类型</param>
+            <returns>类级别属性</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.DbDataHelper.DataAdapter(System.Data.IDbCommand)">
+            <summary>
+            根据Command创建数据库适配对象
+            </summary>
+            <param name="cmd">Command对象</param>
+            <returns>数据库适配对象</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.IDALBase`1">
+            <summary>
+            DAL基（数据库Model）
+            </summary>
+            <typeparam name="T">数据库表对应的Model类型</typeparam>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.IDALBase`2">
+            <summary>
+            DAL基（数据库Model,返回OutputModel）
+            </summary>
+            <typeparam name="T">数据库表对应的Model类型</typeparam>
+            <typeparam name="OutputT">返回的OutputModel类型</typeparam>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetOperater">
+            <summary>
+            获取数据库操作人(需要子类实现)
+            </summary>
+            <returns>操作人</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.BeginLikeMode">
+            <summary>
+            开启模糊查询
+            </summary>
+            <returns>模糊查询状态</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.DeleteAll">
+            <summary>
+            删除全部记录
+            </summary>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.DeleteWithIdentity(System.Int64[])">
+            <summary>
+            根据自增字段作为删除条件
+            </summary>
+            <param name="identitys">自动增量值集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.DeleteWithKeys(`0[])">
+            <summary>
+            根据Key字段作为删除条件，model里的其他任何值均不会作为删除条件，只有标识为Key的字段才会作为删除条件
+            </summary>
+            <param name="models">作为条件的model集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.DeleteWithModel(`0[])">
+            <summary>
+            根据model的值作为条件删除，model里每一个非null字段都会作为删除条件
+            支持模糊查询条件
+            </summary>
+            <param name="models">作为条件的model集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.TruncateTable">
+            <summary>
+            快速清空表内全部数据
+            不经过日志处理，Truncate Table 慎用
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetCount">
+            <summary>
+            获取Model对应的数据库表内所有记录数合计
+            </summary>
+            <returns>记录数合计</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetCount(`0)">
+            <summary>
+            根据model的值作为查询条件,model里每一个非null字段都会作为查询条件，
+            获取Model对应的数据库表内符合条件的记录数合计
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>记录数合计</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetGuid">
+            <summary>
+            通过SQL生成Guid，与Model无关
+            </summary>
+            <returns>Guid</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetIdentity">
+            <summary>
+            获取Model对应的数据库表内最新生成的自动增量值
+            </summary>
+            <returns>最新生成的自动增量值</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetSchemaTable">
+            <summary>
+            获取数据库表结构信息
+            </summary>
+            <returns>数据库表结构信息</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.GetServerTime">
+            <summary>
+            通过SQL获取数据库服务器的当前时间，与Model无关
+            </summary>
+            <returns>数据库服务器的当前时间</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.Insert(`0)">
+            <summary>
+            把model里的除了标识为Identity,Timestamp之外的所有值插入数据库
+            </summary>
+            <param name="model">需要插入数据库的model</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.InsertAndReturn(`0)">
+            <summary>
+            把model里的除了标识为Identity,Timestamp之外的所有值插入数据库
+            </summary>
+            <param name="model">需要插入数据库的model</param>
+            <returns>插入后的结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.InsertCol(`0[])">
+            <summary>
+            把model集合里的model每个除了标识为Identity,Timestamp之外的所有值插入数据库
+            </summary>
+            <param name="models">需要插入数据库的</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.List">
+            <summary>
+            以集合方式返回Model类型所对应数据库表的所有数据
+            </summary>
+            <returns>表内所有数据的Model集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.List(`0)">
+            <summary>
+            根据model的值作为条件查询条件，model里每一个非null字段都会作为查询条件
+            如果想查询所有记录，则model为null即可
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合查询条件的数据集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.List(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，查询结果以集合形式返回
+            支持模糊查询
+            </summary>
+            <param name="sql">自定义sql语句</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ListTable(`0)">
+            <summary>
+            根据model的值查询，model里每一个非null字段都会作为查询条件
+            如果想查询所有记录，则model为null即可
+            支持模糊查询
+            </summary>
+            <param name="model">作为查询条件的model</param>
+            <returns>符合查询条件的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ListTable">
+            <summary>
+            以数据表方式返回Model类型所对应数据库表的所有数据
+            </summary>
+            <returns>表内所有数据的DataTable</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ListTable(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，查询结果以数据表形式返回
+            </summary>
+            <param name="sql">自定义sql语句</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ListDataSet(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，查询结果以DataSet形式返回
+            </summary>
+            <param name="sql">自定义sql语句</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的数据表集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.Search(`0,System.Boolean)">
+            <summary>
+            根据model的值和操作种类进行搜索model集合，model里每一个非null字段都会作为查询条件
+            </summary>
+            <param name="model">作为查询条件的model</param>
+            <param name="or">操作符，true为or，false为and</param>
+            <returns>符合查询条件的数据集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.SelectWithIdentity(System.Int64)">
+            <summary>
+            以自动增量字段为查询条件，获取符合条件model
+            </summary>
+            <param name="identity">作为条件的自动增量</param>
+            <returns>符合条件model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.SelectWithKeys(`0)">
+            <summary>
+            以主键字段为查询条件，model中的非主键字段均不作为查询条件，获取符合条件model
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合条件model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.SelectWithModel(`0)">
+            <summary>
+            根据model的值作为查询条件,model里每一个非null字段都会作为查询条件
+            返回符合条件的第一个model
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合查询条件的第一个model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.Select(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            自定义sql查询，返回满足条件的第一个Model
+            </summary>
+            <param name="sql">自定义sql</param>
+            <param name="parms">执行参数集合</param>
+            <returns>符合查询条件的model</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithIdentity(`0[])">
+            <summary>
+            根据自增字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除自动增量字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithIdentityAndReturn(`0)">
+            <summary>
+            根据自增字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除自动增量字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="model">要更新的值</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithIdentityAndReturn(`0[])">
+            <summary>
+            根据自增字段值更新，model里的其他任何值均不会作为更新条件
+            而model集合中除自动增量字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>更新后的结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithKeys(`0[])">
+            <summary>
+            根据主键字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除主键字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithKeysAndReturn(`0)">
+            <summary>
+            根据主键字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除主键字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="model">要更新的值</param>
+            <returns>更新后的值</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithKeysAndReturn(`0[])">
+            <summary>
+            根据主键字段值更新，model里的其他任何值均不会作为更新条件
+            而model中除主键字段以外的所有不为null的字段将会被更新
+            </summary>
+            <param name="models">要更新的值集合</param>
+            <returns>更新后的值</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithModel(`0,`0)">
+            <summary>
+            根据condition把value里的值更新，condition中所有不为null的字段都将作为查询条件
+            而value中的所有不为null的字段将会被更新
+            支持模糊查询
+            </summary>
+            <param name="value">需要更新的值</param>
+            <param name="condition">更新时的条件</param>
+            <returns>影响的记录数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.UpdateWithModelAndReturn(`0,`0)">
+            <summary>
+            根据condition把value里的值更新，condition中所有不为null的字段都将作为查询条件
+            而value中的所有不为null的字段将会被更新
+            支持模糊查询
+            </summary>
+            <param name="value">需要更新的值</param>
+            <param name="condition">更新时的条件</param>
+            <returns>更新后的值集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ExecuteProvidedSql(System.String)">
+            <summary>
+            执行提供的自定义sql
+            </summary>
+            <param name="sql">自定义sql</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ExecuteProvidedSql(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行提供的自定义sql
+            </summary>
+            <param name="sql">自定义sql</param>
+            <param name="parms">参数</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ExecuteStoredProc(System.String)">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALBase`2.ExecuteStoredProc(System.String,System.Object[])">
+            <summary>
+            执行存储过程
+            </summary>
+            <param name="storedProcName">存储过程名</param>
+            <param name="parms">存储过程参数</param>
+            <returns>返回影响行数</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.IDALPageBase`2">
+            <summary>
+            带分页的DAL基
+            </summary>
+            <typeparam name="T">数据库model</typeparam>
+            <typeparam name="OutputT">返回值outputModel</typeparam>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALPageBase`2.ListPage(`0)">
+            <summary>
+            根据model的值作为查询条件,model里每一个非null字段都会作为查询条件
+            获取分页的数据
+            支持模糊查询
+            </summary>
+            <param name="model">作为条件的model</param>
+            <returns>符合查询条件的分页数据集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDALPageBase`2.ListPage(System.String,System.Int32,System.Int32,System.Collections.ObjectModel.Collection{System.Data.IDataParameter},System.String,System.String)">
+            <summary>
+            自定义sql查询，查询结果以分页形式返回
+            </summary>
+            <param name="sql">自定义原始sql语句</param>
+            <param name="pageNO">页数</param>
+            <param name="pageSize">每页显示数</param>
+            <param name="parms">参数</param>
+            <param name="orderBy">排序语句,例: "ORDER BY GmtUpdateDate DESC"</param>
+            <param name="preSql">前置sql语句</param>
+            <returns></returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.IDbDataHelper">
+            <summary>
+            数据库操作对象（接口）
+            具体的数据库操作类必须继承此接口
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ParameterPrefix">
+            <summary>
+            获取SQL参数前缀，默认为@
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.Prefix">
+            <summary>
+            获取SQL字段前缀，默认为[
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.Suffix">
+            <summary>
+            获取SQL字段后缀，默认为]
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.GetTableInformation(System.Type)">
+            <summary>
+            根据Model类返回对应的数据库表结构信息
+            </summary>
+            <param name="t">Model类的类型</param>
+            <returns>对应的数据库表结构信息</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteForIdentity(System.String)">
+            <summary>
+            获取指定数据表内新的自动增量
+            </summary>
+            <param name="tableName">数据表名</param>
+            <returns>自动增量</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回影响记录行数
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回影响记录行数
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteNonQuery(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回影响记录行数
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteNonQuery(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回影响记录行数
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后影响记录行数</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataTable(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据表
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataTable(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据表
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataTable(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据表
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataTable(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据表
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据表</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataSet(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据集
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataSet(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据集
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataSet(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回数据集
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.FillDataSet(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回数据集
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的数据集</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReader(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReader(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReader(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReader(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReaderForKeyInfo(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReaderForKeyInfo(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReaderForKeyInfo(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteReaderForKeyInfo(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回DataReader,(返回列和主键信息)
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的DataReader(列和主键信息)</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            </summary>
+            <param name="cmdType">执行命令类型</param>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteScalar(System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,数组方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.ExecuteScalar(System.String,System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            执行SQL命令返回首行首列对象，集合为空时返回null
+            CommandType类型为CommandType.Text
+            </summary>
+            <param name="cmdText">执行SQL命令</param>
+            <param name="cmdParms">执行SQL参数,集合方式</param>
+            <returns>执行后返回的首行首列对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.Parameter(System.String,System.Object,System.String)">
+            <summary>
+            创建SQL参数类型
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="p_dbType">数据库数据类型</param>
+            <param name="srcColumn">数据库列名</param>
+            <returns>SQL参数类型</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.IDbDataHelper.DbType(SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute)">
+            <summary>
+            根据Model类中的字段属性获取对应的数据库数据类型
+            </summary>
+            <param name="f">Model类中的字段属性</param>
+            <returns>对应的数据库数据类型</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.LikeMode">
+            <summary>
+            模糊查询模式
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.LikeMode.#ctor">
+            <summary>
+            开始模糊查询模式
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.LikeMode.Dispose">
+            <summary>
+            关闭模糊查询模式
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.SQLHelper">
+            <summary>
+            SQLServer数据库操作对象
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.SQLHelper.ParameterPrefix">
+            <summary>
+            获取SQL参数前缀，默认为@
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.SQLHelper.Prefix">
+            <summary>
+            获取SQL字段前缀，默认为[
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.SQLHelper.Suffix">
+            <summary>
+            获取SQL字段后缀，默认为]
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.SQLHelper.m_DataHelper">
+            <summary>
+            静态SQLServer数据库操作对象
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.SQLHelper.m_tables">
+            <summary>
+            存放Model类中数据表信息集合
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.#ctor">
+            <summary>
+            构造默认SQLServer数据库操作对象
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.#ctor(System.String)">
+            <summary>
+            构造SQLServer数据库操作对象，指定连接字符串
+            </summary>
+            <param name="connString">数据库连接字符串</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.SQLHelper.DataHelper">
+            <summary>
+            获取自身DataHelper
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.SQLHelper.Tables">
+            <summary>
+            获取或设置Model类中数据表信息集合
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.Create">
+            <summary>
+            以单例方式创建默认静态SQLHelper，连接字符串为默认
+            </summary>
+            <returns>静态SQLHelper</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.Create(System.String)">
+            <summary>
+            以单例方式创建默认静态SQLHelper，指定连接字符串
+            </summary>
+            <param name="connString">数据库连接字符串</param>
+            <returns>静态SQLHelper</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.Parameter(System.String,System.Object,System.String)">
+            <summary>
+            创建SQL参数类型
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="p_dbType">数据库数据类型</param>
+            <param name="srcColumn">数据库列名</param>
+            <returns>SQL参数类型</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.CloneParameter(System.Data.IDataParameter)">
+            <summary>
+            复制SQL参数类型
+            </summary>
+            <param name="parm">要复制的参数对象</param>
+            <returns>复制后的参数对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.DbType(SeaSky.StandardLib.MyAttribute.DBFieldInfoAttribute)">
+            <summary>
+            根据Model类中的字段属性获取对应的数据库数据类型
+            </summary>
+            <param name="f">Model类中的字段属性</param>
+            <returns>对应的数据库数据类型</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.ExecuteForIdentity(System.String)">
+            <summary>
+            获取指定数据表内新的自动增量
+            </summary>
+            <param name="tableName">数据表名</param>
+            <returns>自动增量</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.SQLHelper.DataAdapter(System.Data.IDbCommand)">
+            <summary>
+            根据Command创建数据库适配对象
+            </summary>
+            <param name="cmd">Command对象</param>
+            <returns>数据库适配对象</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.TableInfo">
+            <summary>
+            存放从Model的辅助属性中读取的数据库相关表结构信息
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_modelName">
+            <summary>
+            model名称
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_tableName">
+            <summary>
+            对应的数据库名称
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_select">
+            <summary>
+            预生成的Selsect语句
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_update">
+            <summary>
+            预生成的Update语句
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_insert">
+            <summary>
+            预生成的Insert语句
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_insertCol">
+            <summary>
+            预生成的Insert语句（批量插入）
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_treeMainKeyColName">
+            <summary>
+            树结构主列字段名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_treeParentKeyColName">
+            <summary>
+            树结构父列字段名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_identityParm">
+            <summary>
+            自动增量参数集合
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_keysParms">
+            <summary>
+            主键参数集合
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_parameters">
+            <summary>
+            参数集合
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_orderByString">
+            <summary>
+             这是临时设置的OrderBy语句，如果有此语句，则从Model获得OrderBy定义不用
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.TableInfo.m_fields">
+            <summary>
+            Model类属性集合
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.TreeParentKeyColName">
+            <summary>
+            获取或设置树结构父列字段名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.TreeMainKeyColName">
+            <summary>
+            获取或设置树结构主列字段名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.ModelName">
+            <summary>
+            获取或设置model名称
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.TableName">
+            <summary>
+            获取或设置对应的数据库名称
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.Parameters">
+            <summary>
+            获取或设置参数集合
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.Fields">
+            <summary>
+            获取或设置Model类属性集合
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.IdentityParm">
+            <summary>
+            获取或设置自动增量参数集合
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.KeysParms">
+            <summary>
+            获取或设置主键参数集合
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.Select">
+            <summary>
+            获取或设置预生成的Selsect语句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.Update">
+            <summary>
+            获取或设置预生成的Update语句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.Insert">
+            <summary>
+            获取或设置预生成的Insert语句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.Delete">
+            <summary>
+            获取或设置预生成的Delete语句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableInfo.OrderByString">
+            <summary>
+            获取或设置预生成的排序语句
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareConditionParms(System.Object,System.Boolean)">
+            <summary>
+            根据具体Model对象生成Where参数及子句
+            对象中属性为null值的不作为生成条件
+            </summary>
+            <param name="o">Model对象</param>
+            <param name="isLikeMode">是否模糊查询</param>
+            <returns>Where参数及子句</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareSearchParms(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            根据具体Model对象生成Where参数及子句
+            对象中属性为null值的不作为生成条件
+            </summary>
+            <param name="o">Model对象</param>
+            <param name="or">条件连接是否使用or，true为使用or，false为使用and</param>
+            <param name="isLikeMode">是否模糊查询</param>
+            <returns>Where参数及子句</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareUpdateParms(System.Object,System.Boolean,System.Object)">
+            <summary>
+            根据具体Model对象生成Update参数及子句
+            </summary>
+            <param name="value">更新Model对象，用于生成Update部分，属性为null值的不作为生成条件</param>
+            <param name="condition">条件Model对象，用于生成Where部分，属性为null值的不作为生成条件</param>
+            <param name="isLikeMode">是否模糊查询</param>
+            <returns>Update参数及子句</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareNotIdentityParms(System.Object)">
+            <summary>
+            根据具体Model对象获取非自动增量的参数集合
+            </summary>
+            <param name="o">Model对象</param>
+            <returns>非自动增量的参数集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareIdentityParm(System.Int64)">
+            <summary>
+            根据具体Model对象获取自动增量的参数集合
+            </summary>
+            <param name="identity">Model对象</param>
+            <returns>自动增量的参数集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareKeysParms(System.Object)">
+            <summary>
+            根据具体Model对象获取主键的参数集合
+            </summary>
+            <param name="o">Model对象</param>
+            <returns>主键的参数集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareAllParms(System.Object)">
+            <summary>
+            根据具体Model对象获取所有的参数集合
+            </summary>
+            <param name="o">Model对象</param>
+            <returns>所有参数集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.PrepareInsertCol``2(``0[],System.String)">
+            <summary>
+            根据Model生成批量Insert语句
+            </summary>
+            <typeparam name="Model">数据库Model类型</typeparam>
+            <typeparam name="OutputModel">数据库返回Model集合类型</typeparam>
+            <param name="models">Model对象集合</param>
+            <param name="operater">数据库操作人</param>
+            <returns>批量Insert语句</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.ReadDataReader(System.Data.IDataReader,System.Object)">
+            <summary>
+            读取DataReader里的数据到传进来的object中，DataReader必须已经rdr.Read()过
+            </summary>
+            <param name="rdr">要读取的DataReader</param>
+            <param name="o">读取到这个object中</param>
+            <returns>返回读取好的object</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.Initial(SeaSky.StandardLib.MyAttribute.ModelAttribute,SeaSky.StandardLib.MyBaseClass.IDbDataHelper,System.Type)">
+            <summary>
+            根据Model数据表属性，预生成Select，Update，Delete，Insert语句主干
+            </summary>
+            <param name="table">Model数据表属性</param>
+            <param name="dataHelper">数据库连接对象</param>
+            <param name="t">Model类型</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.ConvertString(System.Object)">
+            <summary>
+            将对象转化为字符串，将一个单引号，转化为两个单引号
+            </summary>
+            <param name="o">待转化对象</param>
+            <returns>转化后的字符串</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.TableInfo.CloneParameter(System.Data.IDataParameter)">
+            <summary>
+            复制参数集合
+            </summary>
+            <param name="parm">待复制的参数集合</param>
+            <returns>复制后的参数集合</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.TableCollection">
+            <summary>
+            存放从Model的辅助属性中读取的数据库相关表结构信息，多个数据表
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.TableCollection.Item(System.String)">
+            <summary>
+            获取指定Model名的数据库表结构信息
+            </summary>
+            <param name="modelName">Model名称</param>
+            <returns>数据库表结构信息</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyBaseClass.ParmCollection">
+            <summary>
+            SQL语句中的参数集合及对应子句
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.ParmCollection.m_whereSql">
+            <summary>
+            Where子句
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.ParmCollection.m_updateSql">
+            <summary>
+            Update子句
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyBaseClass.ParmCollection.m_insertSql">
+            <summary>
+            Insert子句
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.ParmCollection.#ctor">
+            <summary>
+            构造参数集合及子句
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.ParmCollection.#ctor(System.Data.IDataParameter)">
+            <summary>
+            构造参数集合及子句
+            </summary>
+            <param name="parm">指定参数集合</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.ParmCollection.WhereSql">
+            <summary>
+            获取或设置Where子句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.ParmCollection.UpdateSql">
+            <summary>
+            获取或设置Update子句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyBaseClass.ParmCollection.OnlyParameter">
+            <summary>
+            获取参数集合
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.ParmCollection.AddRange(System.Collections.ObjectModel.Collection{System.Data.IDataParameter})">
+            <summary>
+            添加到参数集合
+            </summary>
+            <param name="parms">参数集合</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyBaseClass.ParmCollection.Contains(System.String)">
+            <summary>
+            判断是否包含指定参数名的参数
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <returns>true为包含，false为不包含</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyCompression.ZipClass">
+            <summary>
+            压缩和解压文件
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyCompression.ZipClass.files">
+            <summary>
+            所有文件缓存
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyCompression.ZipClass.paths">
+            <summary>
+            所有空目录缓存
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyCompression.ZipClass.ZipFile(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            压缩单个文件
+            </summary>
+            <param name="fileToZip">要压缩的文件</param>
+            <param name="zipedFile">压缩后的文件全名</param>
+            <param name="compressionLevel">压缩程度，范围0-9，数值越大，压缩程序越高</param>
+            <param name="blockSize">分块大小</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyCompression.ZipClass.ZipFileFromDirectory(System.String,System.String,System.Int32)">
+            <summary>
+            压缩目录（包括子目录及所有文件）
+            </summary>
+            <param name="rootPath">要压缩的根目录</param>
+            <param name="destinationPath">保存路径</param>
+            <param name="compressLevel">压缩程度，范围0-9，数值越大，压缩程序越高</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyCompression.ZipClass.GetAllDirectories(System.String)">
+            <summary>
+            取得目录下所有文件及文件夹，分别存入files及paths
+            </summary>
+            <param name="rootPath">根目录</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyCompression.ZipClass.UnZip(System.String,System.String)">
+            <summary>
+            解压缩文件(压缩文件中含有子目录)
+            </summary>
+            <param name="zipfilepath">待解压缩的文件路径</param>
+            <param name="unzippath">解压缩到指定目录</param>
+            <returns>解压后的文件列表</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyConvert.ChineseToPinYin">
+            <summary>
+            中文拼音转换类
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyConvert.ChineseToPinYin.m_AllPY">
+            <summary>
+            常用拼音
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyConvert.ChineseToPinYin.m_ExtPY">
+            <summary>
+            非常用字拼音
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyConvert.ChineseToPinYin.m_Chinese">
+            <summary>
+            拼音描述类集合
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.GetPY(System.String)">
+            <summary>
+            获得中文的拼音（全拼）
+            </summary>
+            <param name="s">中文</param>
+            <returns>中文的拼音（全拼）</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.GetSZM(System.String)">
+            <summary>
+            获得中文的拼音（首字母）
+            </summary>
+            <param name="s">中文</param>
+            <returns>中文的拼音（全拼）</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.FindExtPY(System.Char)">
+            <summary>
+            FindExtPY
+            </summary>
+            <param name="c">c</param>
+            <returns>未知</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.FindItem(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            FindItem
+            </summary>
+            <param name="begin">begin</param>
+            <param name="end">end</param>
+            <param name="p_pyCode">p_pyCode</param>
+            <returns>未知</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.FillChinese">
+            <summary>
+            加载常用拼音字库
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.GetPYCode(System.Char)">
+            <summary>
+            获取字节码
+            </summary>
+            <param name="s">字符</param>
+            <returns>字节码</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ChineseToPinYin.AddChinese(SeaSky.StandardLib.MyConvert.PYInfo)">
+            <summary>
+            加载常用拼音字库
+            </summary>
+            <param name="py">拼音描述</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyConvert.PYInfo">
+            <summary>
+            拼音描述Model
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyConvert.PYInfo.m_code">
+            <summary>
+            汉字编码
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyConvert.PYInfo.m_chinese">
+            <summary>
+            汉字
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyConvert.PYInfo.m_py">
+            <summary>
+            拼音
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.PYInfo.#ctor">
+            <summary>
+            构造拼音描述Model
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.PYInfo.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            根据参数构造拼音描述Model
+            </summary>
+            <param name="code">汉字编码</param>
+            <param name="chinese">汉字</param>
+            <param name="py">拼音</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyConvert.PYInfo.Code">
+            <summary>
+            获取或设置汉字编码
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyConvert.PYInfo.Chinese">
+            <summary>
+            获取或设置汉字
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyConvert.PYInfo.PY">
+            <summary>
+            获取或设置拼音
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyConvert.DataSetXMLConvert">
+            <summary>
+            DataSetXml序列化
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.DataSetXMLConvert.SerializeDataTableXml(System.Data.DataTable)">
+            <summary> 
+            序列化DataTable 
+            </summary> 
+            <param name="pDt">包含数据的DataTable</param> 
+            <returns>序列化的DataTable</returns> 
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.DataSetXMLConvert.DeserializeDataTable(System.String)">
+            <summary> 
+            反序列化DataTable 
+            </summary> 
+            <param name="pXml">序列化的DataTable</param> 
+            <returns>DataTable</returns> 
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.DataSetXMLConvert.ConvertDataSetToXML(System.Data.DataSet)">
+            <summary>
+            序列化DataSet
+            </summary>
+            <param name="xmlDS">包含数据的DataSet</param>
+            <returns>序列化的DataSet</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.DataSetXMLConvert.ConvertXMLToDataSet(System.String)">
+            <summary>
+            反序列化DataSet 
+            </summary>
+            <param name="xmlData">序列化的DataSet</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyConvert.MoneyToChinese">
+            <summary>
+            数字金额转中文
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.MoneyToChinese.ToChinese(System.String)">
+            <summary>
+            转中文
+            </summary>
+            <param name="LowerMoney">数字金额</param>
+            <returns></returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyConvert.ObjectMapper">
+            <summary>
+            对象映射器
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectMapper.Map``2(``0,``1)">
+            <summary>
+            映射
+            </summary>
+            <typeparam name="TFrom">映射前类型</typeparam>
+            <typeparam name="TTo">映射后类型</typeparam>
+            <param name="from">映射前的对象</param>
+            <param name="to">映射后的对象</param>
+            <returns>映射后的对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectMapper.Map``2(``0,``1,System.Boolean)">
+            <summary>
+            映射
+            </summary>
+            <typeparam name="TFrom">映射前类型</typeparam>
+            <typeparam name="TTo">映射后类型</typeparam>
+            <param name="from">映射前的对象</param>
+            <param name="to">映射后的对象</param>
+            <param name="ignoreUnmatchedValue">忽略不匹配对象</param>
+            <returns>映射后的对象</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectMapper.Map``2(``0,``1,System.Object)">
+            <summary>
+            Maps properties of <paramref name="from"/> object into <paramref name="to"/> object.
+            </summary>
+            <typeparam name="TFrom">The type of <paramref name="from"/>.</typeparam>
+            <typeparam name="TTo">The type of <paramref name="to"/>.</typeparam>
+            <param name="from">An object mapped from.</param>
+            <param name="to">An object mapped to.</param>
+            <param name="explicitMappings">Explicit mappings.</param>
+            <returns>Mapped <paramref name="to"/> object.</returns>
+            <remarks>
+            This method does not work under partially trusted environment.
+            </remarks>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectMapper.Map``2(``0,``1,System.Boolean,System.Object)">
+            <summary>
+            Maps properties of <paramref name="from"/> object into <paramref name="to"/> object.
+            </summary>
+            <typeparam name="TFrom">The type of <paramref name="from"/>.</typeparam>
+            <typeparam name="TTo">The type of <paramref name="to"/>.</typeparam>
+            <param name="from">An object mapped from.</param>
+            <param name="to">An object mapped to.</param>
+            <param name="ignoreUnmatchedValue">Ignores unmatched value</param>
+            <param name="explicitMappings">Explicit mappings.</param>
+            <returns>Mapped <paramref name="to"/> object.</returns>
+            <remarks>
+            This method does not work under partially trusted environment.
+            </remarks>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectMapper.Map``2(``0,``1,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Maps properties of <paramref name="from"/> object into <paramref name="to"/> object.
+            </summary>
+            <typeparam name="TFrom">The type of <paramref name="from"/>.</typeparam>
+            <typeparam name="TTo">The type of <paramref name="to"/>.</typeparam>
+            <param name="from">An object mapped from.</param>
+            <param name="to">An object mapped to.</param>
+            <param name="explicitMappings">Explicit mappings.</param>
+            <returns>Mapped <paramref name="to"/> object.</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectMapper.Map``2(``0,``1,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Maps properties of <paramref name="from"/> object into <paramref name="to"/> object.
+            </summary>
+            <typeparam name="TFrom">The type of <paramref name="from"/>.</typeparam>
+            <typeparam name="TTo">The type of <paramref name="to"/>.</typeparam>
+            <param name="from">An object mapped from.</param>
+            <param name="to">An object mapped to.</param>
+            <param name="ignoreUnmatchedValue">Ignores unmatched value</param>
+            <param name="explicitMappings">Explicit mappings.</param>
+            <returns>Mapped <paramref name="to"/> object.</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyConvert.ObjectSerializeConvert">
+            <summary>
+            Object序列化
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectSerializeConvert.BinarySerialize(System.Object)">
+            <summary>
+            序列化
+            </summary>
+            <param name="obj">对象</param>
+            <returns>byteString</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectSerializeConvert.DeSerialize(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="byteString">byteString</param>
+            <returns>object</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectSerializeConvert.ByteToStr(System.Byte[])">
+            <summary>
+            byte[]转string
+            </summary>
+            <param name="inputBytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyConvert.ObjectSerializeConvert.strToByte(System.String)">
+            <summary>
+            string转byte[]
+            </summary>
+            <param name="inputString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.ColumnInfo">
+            <summary>
+            列信息
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.ColumnInfo.#ctor(System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造
+            </summary>
+            <param name="columnName"></param>
+            <param name="typeName"></param>
+            <param name="width"></param>
+            <param name="scale"></param>
+            <param name="nullable"></param>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.ColumnInfo.ToString">
+            <summary>
+            转成string字符串
+            </summary>
+            <returns>ColumnName TypeName DbType Size Precision Scale IsNullable UseScale UseSize</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.ConvertUtils">
+            <summary>
+            转换工具
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.ConvertUtils.CanConvertTo(System.Type,System.Object)">
+            <summary>
+            能否转化
+            </summary>
+            <param name="type">类型</param>
+            <param name="value">需要转化的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.ConvertUtils.ConvertTo(System.Type,System.Object)">
+            <summary>
+            转换
+            </summary>
+            <param name="type">类型</param>
+            <param name="value">需要转换的对象</param>
+            <returns>转换后的对象</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.DatabaseExtension">
+            <summary>
+            Extends <see cref="T:Microsoft.Practices.EnterpriseLibrary.Data.Database"/>.
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.DatabaseExtension.ExecuteScalar``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            Executes the command and returns the first column 
+            of the first row in the result set returned by the query.
+            Extra columns or rows are ignored.
+            </summary>
+            <typeparam name="T">Type of the scalar.</typeparam>
+            <param name="database">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Data.Database"/> that executes the command.</param>
+            <param name="cmd">Command to execute.</param>
+            <returns>The value of the first column of the first row in the result set.</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.DataRecordExtension">
+            <summary>
+            Extends <see cref="T:System.Data.IDataRecord"/>.
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.DataRecordExtension.GetValue``1(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets the value of the specified field.
+            </summary>
+            <typeparam name="T">
+            The type of the field.
+            Should be a reference type or a nullable value type 
+            if it is possible that the field contains <see cref="T:System.DBNull"/>.
+            </typeparam>
+            <param name="record"></param>
+            <param name="name">The name of the field to find.</param>
+            <returns>
+            The value of the specified field; <see langword="null"/> if the field contains <see cref="T:System.DBNull"/>.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">This exception occurs when the value conversion failed.</exception>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.DataRecordExtension.GetValue``1(System.Data.IDataRecord,System.Int32)">
+            <summary>
+            Gets the value of the specified field.
+            </summary>
+            <typeparam name="T">
+            The type of the field.
+            Should be a reference type or a nullable value type 
+            if it is possible that the field contains <see cref="T:System.DBNull"/>.
+            </typeparam>
+            <param name="record"></param>
+            <param name="i">The index of the field to find.</param>
+            <returns>
+            The value of the specified field; <see langword="null"/> if the field contains <see cref="T:System.DBNull"/>.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">This exception occurs when the value conversion failed.</exception>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.MasterRepositoryBase">
+            <summary>
+            Database基类
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.DAL.Base.MasterRepositoryBase.Database">
+            <summary>
+            数据库Database实例
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.MasterRepositoryBase.#ctor">
+            <summary>
+            以默认连接名BaseConn,创建Database实例
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.MasterRepositoryBase.#ctor(System.String)">
+            <summary>
+            根据连接名创建Database实例
+            </summary>
+            <param name="connectionName">连接名</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.TableInfo">
+            <summary>
+            表单信息
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.DAL.Base.TableInfo.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.DAL.Base.TableInfo.Columns">
+            <summary>
+            列集合
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.DAL.Base.TypeExtension">
+            <summary>
+            Extends <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.TypeExtension.IsNullableValueType(System.Type)">
+            <summary>
+            Gets a value indicating whether the current type is an instance of <see cref="T:System.Nullable`1"/> type.
+            </summary>
+            <returns>
+            <see langword="true"/> if the type is a nullable value type;
+            otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.DAL.Base.TypeExtension.IsNullable(System.Type)">
+            <summary>
+            Gets a value indicating whether the current type is nullable.
+            </summary>
+            <returns>
+            <see langword="true"/> if the type is a reference type or an instance of <see cref="T:System.Nullable`1"/> type;
+            otherwise, <see langword="false"/>.
+            </returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.EnumExportFieldAlignment">
+            <summary>
+            导出字段对齐方式
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumExportFieldAlignment.左对齐">
+            <summary>
+            左对齐
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumExportFieldAlignment.右对齐">
+            <summary>
+            右对齐
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.DataExportDescInfo">
+            <summary>
+            导出字段描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_ExmportKey">
+            <summary>
+            导出分类标记
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_fielddesc_External">
+            <summary>
+            导出目标列名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_fielddesc_Internal">
+            <summary>
+            导出来源列名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_isDefaultField">
+            <summary>
+            是否默认值字段
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_Defaultvalue">
+            <summary>
+            导出默认值
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_fieldwrithType">
+            <summary>
+            导出数据类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_txtFieldLength">
+            <summary>
+            导出txt字段长度
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_txtPaddingChar">
+            <summary>
+            导出txt字段填充字符
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_ValueFormat">
+            <summary>
+            导出字段格式
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.m_txtFieldAlignment">
+            <summary>
+            导出字段对齐方式
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.ExmportKey">
+            <summary>
+            获取或设置导出目标列名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.Fielddesc_External">
+            <summary>
+            获取或设置导出目标列名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.Fielddesc_Internal">
+            <summary>
+            获取或设置导出来源列名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.IsDefaultField">
+            <summary>
+            获取或设置是否默认值列
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.Defaultvalue">
+            <summary>
+            获取或设置导出默认值
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.FieldWrithType">
+            <summary>
+            获取或设置导出字段类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.TxtFieldLength">
+            <summary>
+            获取或设置导出txt字段长度,导出类型为txt才有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.ValueFormat">
+            <summary>
+            获取或设置导出字段格式
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.TxtPaddingChar">
+            <summary>
+            获取或设置导出txt字段填充符
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.TxtFieldAlignment">
+            <summary>
+            获取或设置导出字段对齐方式,导出类型为txt才有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.ExcelValueType">
+            <summary>
+            获取导出字段类型对应Excel内部数据类型
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.GetExportValue(System.Object,System.Object@)">
+            <summary>
+            将导出字段值转化为符合设置要求的值,导出类型为Excel时使用
+            </summary>
+            <param name="value">数据源值</param>
+            <param name="convertValue">转化后值</param>
+            <returns>转化结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.GetExportValueTxtFormat(System.Object,System.Char)">
+            <summary>
+            将导出字段值转化为符合设置要求的值,导出类型为txt时使用
+            </summary>
+            <param name="value">数据源值</param>
+            <param name="paddingChar">默认空白填充字符</param>
+            <returns>转化结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataExportDescInfo.GetSubString(System.String,System.Int32,System.Char,System.Boolean,System.Boolean)">
+            <summary>
+            截取字符串，中文算2个长度，不足部分由指定字符串填充
+            </summary>
+            <param name="source"></param>
+            <param name="len"></param>
+            <param name="c"></param>
+            <param name="padleft">是否左边填充</param>
+            <param name="subRight">是否右侧截取</param>
+            <returns></returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.DataExportDescCol">
+            <summary>
+            导出字段描述集合
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo">
+            <summary>
+            导出命令描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_ExmportKey">
+            <summary>
+            导出分类标记
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_FileType">
+            <summary>
+            导出文件类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_FileName">
+            <summary>
+            导出文件名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_TableName">
+            <summary>
+            导出数据表名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_txtSpecialLineBegin">
+            <summary>
+            导出txt首行内容
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_txtSpecialLineEnd">
+            <summary>
+            导出txt尾行内容
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_txtSplitStr">
+            <summary>
+            导出txt分割符
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_txtExportTitle">
+            <summary>
+            导出是否包含标题行
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.m_txtPaddingChar">
+            <summary>
+            导出txt默认填充字符
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.ExmportKey">
+            <summary>
+            获取或设置导出分类标记
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.FileType">
+            <summary>
+            获取或设置导出文件类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.FileExtension">
+            <summary>
+            获取导出文件类型的扩展名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.FileName">
+            <summary>
+            获取或设置导出文件名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.TableName">
+            <summary>
+            获取或设置导出数据表名，若为txt格式则无需设置
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.TxtSpecialLineBegin">
+            <summary>
+            获取或设置导出txt首行内容，导出类型为txt才有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.TxtSpecialLineEnd">
+            <summary>
+            获取或设置导出txt尾行内容，导出类型为txt才有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.TxtSplitStr">
+            <summary>
+            获取或设置导出txt分割符，导出类型为txt才有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.TxtExportTitle">
+            <summary>
+            获取或设置导出是否包含标题行
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataExportOrderInfo.TxtPaddingChar">
+            <summary>
+            获取或设置导出txt默认填充字符，导出类型为txt才有效
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.EnumFilterWay">
+            <summary>
+            导入数据过滤方式
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumFilterWay.无过滤">
+            <summary>
+            无过滤
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumFilterWay.只处理">
+            <summary>
+            只处理
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumFilterWay.不处理">
+            <summary>
+            不处理
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.EnumIOFileType">
+            <summary>
+            导入或导出的文件类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIOFileType.Excel">
+            <summary>
+            Excel
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIOFileType.Txt">
+            <summary>
+            Txt
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.EnumIODateType">
+            <summary>
+            导入或导出的字段类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIODateType.文本">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIODateType.整数">
+            <summary>
+            整数
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIODateType.小数">
+            <summary>
+            小数
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIODateType.日期">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.EnumIODateType.金额">
+            <summary>
+            金额
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.DataImportDescInfo">
+            <summary>
+            导入字段描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_ImportKey">
+            <summary>
+            导入分类标记
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_fielddesc_Internal">
+            <summary>
+            导入内部字段名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_fielddesc_Internal_Desc">
+            <summary>
+            导入内部字段名描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_fieldreadType">
+            <summary>
+            导入字段类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_FieldLength">
+            <summary>
+            导入字段长度
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_isNecessary">
+            <summary>
+            导入字段是否必须字段
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_fielddesc_External">
+            <summary>
+            导入数据源字段名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_fielddesc_External_Index">
+            <summary>
+            导入数据源字段序号
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_fielddesc_Remark">
+            <summary>
+            导入字段描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_bindingGroupIndex">
+            <summary>
+            导入字段分组
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_txtFieldStartIndex">
+            <summary>
+            导入txt行起始位置
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_txtFieldReadLength">
+            <summary>
+            导入txt行读取字符数
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_FilterValue">
+            <summary>
+            导入过滤字符
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.m_FilterWay">
+            <summary>
+            导入过滤处理方式
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.ImportKey">
+            <summary>
+            获取或设置导入分类标记
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.Fielddesc_Internal">
+            <summary>
+            获取或设置导入内部字段名，DataTable或数据库列名
+            或为空则为导入内部字段描述
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.Fielddesc_Internal_Desc">
+            <summary>
+            获取或设置导入内部字段名描述，用于显示
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.FieldreadType">
+            <summary>
+            获取或设置导入字段类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.FieldLength">
+            <summary>
+            获取或设置导入字段长度
+            若字段类型为小数或金额，长度默认为18
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.IsNecessary">
+            <summary>
+            获取或设置是否必须字段
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.Fielddesc_External">
+            <summary>
+            获取或设置导入数据源字段名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.Fielddesc_External_Index">
+            <summary>
+            获取或设置导入数据源字段序号
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.Fielddesc_Remark">
+            <summary>
+            获取或设置导入字段描述
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.BindingGroupIndex">
+            <summary>
+            获取或设置导入字段分组，同一组内必须要么同时导入，要么同时不导入
+            分组值未-1时，为不分组
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.TxtFieldStartIndex">
+            <summary>
+            获取或设置导入txt行起始位置，只对导入类型为txt有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.TxtFieldReadLength">
+            <summary>
+            获取或设置导入txt行读取字符数，只对导入类型为txt有效
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.FilterValue">
+            <summary>
+            获取或设置导入过滤字符
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.FilterWay">
+            <summary>
+            获取或设置导入过滤处理方式，默认为无过滤
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataImportDescInfo.GetImportValue(System.String,System.Object@,System.Boolean@)">
+            <summary>
+            将导入字段值转化为符合设置要求的值
+            </summary>
+            <param name="value">导入字段值</param>
+            <param name="convertValue">转化后的值</param>
+            <param name="isIgnore">是否被过滤</param>
+            <returns>转化结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.DataImportDescCol">
+            <summary>
+            导入字段描述集合
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataImportDescCol.CreateDataTableByDescInfo">
+            <summary>
+            生成准备存放数据的DataTable结构，导入数据到DataTable使用
+            </summary>
+            <returns>创建的只有结构但没有数据的DataTable</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataImportDescCol.GetMatchedInternalCols">
+            <summary>
+            获取已经匹配到的需要导入字段的内部列名
+            </summary>
+            <returns>已经匹配到的需要导入字段的内部列名</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataImportDescCol.GetMatchedInternalRelation">
+            <summary>
+            获取已经匹配到的需要导入字段的列名与描述关系
+            </summary>
+            <returns>已经匹配到的需要导入字段的列名与描述关系,内部列名为key，描述为value</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo">
+            <summary>
+            导入命令描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_ImportKey">
+            <summary>
+            导入分类标记
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_FileType">
+            <summary>
+            导入文件类型
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_FileName">
+            <summary>
+            导入文件名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_TableName">
+            <summary>
+            导入数据表名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_hasTitle">
+            <summary>
+            导入目标是否含有标题
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_StartReadIndex">
+            <summary>
+            导入文件开始行位置
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_EndReadIndex">
+            <summary>
+            导入文件结束行位置
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.m_txtSplitStr">
+            <summary>
+            导入txt文件分割符
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.ImportKey">
+            <summary>
+            获取或设置导入分类标记
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.FileType">
+            <summary>
+            获取或设置导入文件类型
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.FileName">
+            <summary>
+            获取或设置导入文件名
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.TableName">
+            <summary>
+            获取或设置导入数据表名，若导入类型为txt则无需设置
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.HasTitle">
+            <summary>
+            获取或设置导入目标是否含有标题
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.StartReadIndex">
+            <summary>
+            获取或设置导入文件开始行位置
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.EndReadIndex">
+            <summary>
+            获取或设置导入文件结束行位置
+            此值为倒数，如设置为2，则为倒数第二行，倒数第二行和第一行将不被导入
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.TxtSplitStr">
+            <summary>
+            获取或设置导入txt文件分割符，只对导入类型为txt有效
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.DataImportOrderInfo.CheckExtensionAvailable">
+            <summary>
+            校验导入文件是否符合设置要求
+            </summary>
+            <returns>校验结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.IExportBase">
+            <summary>
+            数据导出接口
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.IExportBase.Export(SeaSky.StandardLib.MyDataIO.DataExportDescCol,System.Data.DataTable)">
+            <summary>
+            数据导出
+            </summary>
+            <param name="descCol">导出列描述集合</param>
+            <param name="dataSource">导出数据源</param>
+            <returns>导出结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.IExportBase.Export(SeaSky.StandardLib.MyDataIO.DataExportDescCol,System.Data.DataTable,System.Text.Encoding)">
+            <summary>
+            数据导出
+            </summary>
+            <param name="descCol">导出列描述集合</param>
+            <param name="dataSource">导出数据源</param>
+            <param name="Encoding">Encoding</param>
+            <returns>导出结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ExportHelper">
+            <summary>
+            数据导出接口工厂类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportHelper.CreateExportHelper(SeaSky.StandardLib.MyDataIO.DataExportOrderInfo)">
+            <summary>
+            根据导出命令描述，创建数据导出操作类
+            </summary>
+            <param name="orderInfo">导出命令描述</param>
+            <returns>数据导出操作类</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ExportToExcel">
+            <summary>
+            将数据导出至Excel
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToExcel.m_FileName">
+            <summary>
+            Excel文件名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToExcel.m_TableName">
+            <summary>
+            Excel文件Sheet名
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToExcel.#ctor(SeaSky.StandardLib.MyDataIO.DataExportOrderInfo)">
+            <summary>
+            根据导出命令描述构造Excel导出操作类
+            </summary>
+            <param name="orderInfo">导出命令描述</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToExcel.Export(SeaSky.StandardLib.MyDataIO.DataExportDescCol,System.Data.DataTable)">
+            <summary>
+            将数据导出到Excel文件
+            </summary>
+            <param name="descCol">导出列信息描述</param>
+            <param name="dataSource">导出数据源</param>
+            <returns>导出结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToExcel.Export(SeaSky.StandardLib.MyDataIO.DataExportDescCol,System.Data.DataTable,System.Text.Encoding)">
+            <summary>
+            将数据导出到Excel文件
+            </summary>
+            <param name="descCol">导出列信息描述</param>
+            <param name="dataSource">导出数据源</param>
+            <param name="Encoding">Encoding</param>
+            <returns>导出结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToExcel.ExecuteNonQuery(System.Data.OleDb.OleDbTransaction,System.String)">
+            <summary>
+            将数据插入Excel，返回影响行数
+            </summary>
+            <param name="trans">数据库事务</param>
+            <param name="cmdText">执行的SQL命令</param>
+            <returns>影响行数</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ExportToTxt">
+            <summary>
+            将数据导出至Excel
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToTxt.m_FileName">
+            <summary>
+            Txt文件名
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToTxt.m_SpecialLineBegin">
+            <summary>
+            起始行数据
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToTxt.m_SpecialLineEnd">
+            <summary>
+            结尾行数据
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToTxt.m_SplitStr">
+            <summary>
+            字段分割符
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToTxt.m_ExportTitle">
+            <summary>
+            是否导出标题
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyDataIO.ExportToTxt.m_paddingChar">
+            <summary>
+            默认空白填充字符
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToTxt.#ctor(SeaSky.StandardLib.MyDataIO.DataExportOrderInfo)">
+            <summary>
+            根据导出命令描述构造Txt导出操作类
+            </summary>
+            <param name="orderInfo">导出命令描述</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToTxt.Export(SeaSky.StandardLib.MyDataIO.DataExportDescCol,System.Data.DataTable)">
+            <summary>
+            导出
+            </summary>
+            <param name="descCol">导出列信息描述</param>
+            <param name="dataSource">导出数据源</param>
+            <returns>导出结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ExportToTxt.Export(SeaSky.StandardLib.MyDataIO.DataExportDescCol,System.Data.DataTable,System.Text.Encoding)">
+            <summary>
+            将数据导出到Txt文件
+            </summary>
+            <param name="descCol">导出列信息描述</param>
+            <param name="dataSource">导出数据源</param>
+            <param name="Encoding">Encoding</param>
+            <returns>导出结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ImportFromExcel">
+            <summary>
+            Excel导入
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromExcel.GetTables(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            获取可选导入表集合，Excel为Sheet，Txt为文件名
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="tables">可选导入表集合</param>
+            <returns>获取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromExcel.LoadFileSummerData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            从文件中读取数据摘要，10行数据,重写基类
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="dtSummer">获得的摘要数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromExcel.LoadFileAllData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            从文件中读取全部,重写基类
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="dtAllData">获得的全部数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromExcel.LoadExcelData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,System.Int32,System.Data.DataTable@)">
+            <summary>
+            从Excel中读取指定行数
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="LoadLine">要读取的行数，0为全部行</param>
+            <param name="dtResult">获得的指定行数的数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromExcel.CreateExcelConnStr(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo)">
+            <summary>
+            根据导入命令描述构造导入操作类
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ImportFromTxt">
+            <summary>
+            从Txt导入数据
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromTxt.GetTables(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            获取可选导入表集合，Excel为Sheet，Txt为文件名
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="tables">可选导入表集合</param>
+            <returns>获取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromTxt.LoadFileSummerData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            从文件中读取数据摘要，10行数据,重写基类
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="dtSummer">获得的摘要数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromTxt.LoadFileAllData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            从文件中读取全部,重写基类
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="dtAllDate">获得的全部数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromTxt.LoadTxtData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Int32,System.Data.DataTable@)">
+            <summary>
+            从Txt中读取指定行数
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="LoadLine">要读取的行数，0为全部行</param>
+            <param name="dtResult">获得的指定行数的数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromTxt.AnalysisTxtLine(System.String,System.String)">
+            <summary>
+            根据分隔符，将行数据转化为字段对应的字符串集合
+            </summary>
+            <param name="src">txt行数据</param>
+            <param name="split">字段分割符</param>
+            <returns>字段对应的字符串集合</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportFromTxt.AnalysisTxtLine(System.String,System.Collections.Generic.List{SeaSky.StandardLib.MyDataIO.DataImportDescInfo})">
+            <summary>
+            根据字段描述信息，将行数据转化为字段对应的字符串集合
+            根据字段描述的读入起始位置及读取字符数来读取
+            </summary>
+            <param name="src">txt行数据</param>
+            <param name="descCol">字段分割符</param>
+            <returns>字段对应的字符串集合</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.IImportBase">
+            <summary>
+            数据导入接口
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.IImportBase.GetTables(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            获取可选导入表集合，Excel为Sheet，Txt为文件名
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="tables">可选导入表集合</param>
+            <returns>获取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.IImportBase.AnalysisField(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo@,SeaSky.StandardLib.MyDataIO.DataImportDescCol@,System.Collections.Generic.Dictionary{System.String,System.Int32}@)">
+            <summary>
+            10行数据内分析导入文件的字段信息与设置的字段描述匹配程度
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">设置的字段导入描述</param>
+            <param name="noMarchCol">未匹配到的字段信息</param>
+            <returns>匹配结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.IImportBase.LoadDataToDataTable(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            将数据导入到DataTable
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">设置的字段导入描述</param>
+            <param name="dtResult">获取到数据的DataTable</param>
+            <returns>导入结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ImportBase">
+            <summary>
+            数据导入基础类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.GetTables(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            获取可选导入表集合，Excel为Sheet，Txt为文件名
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="tables">可选导入表集合</param>
+            <returns>获取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.LoadFileSummerData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            从文件中读取数据摘要，10行数据
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="dtSummer">获得的摘要数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.LoadFileAllData(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            从文件中读取全部
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="dtAllDate">获得的全部数据</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.AnalysisField(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo@,SeaSky.StandardLib.MyDataIO.DataImportDescCol@,System.Collections.Generic.Dictionary{System.String,System.Int32}@)">
+            <summary>
+            10行数据内分析导入文件的字段信息与设置的字段描述匹配程度
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">设置的字段导入描述</param>
+            <param name="noMarchCol">未匹配到的字段信息</param>
+            <returns>匹配结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.AnalysisField_hasTitle(System.Data.DataTable,SeaSky.StandardLib.MyDataIO.DataImportOrderInfo@,SeaSky.StandardLib.MyDataIO.DataImportDescCol@,System.Collections.Generic.Dictionary{System.String,System.Int32}@)">
+            <summary>
+            分析所需字段与导入文件内字段的匹配关系，有标题行
+            </summary>
+            <param name="dtSummer">10行摘要数据</param>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="noMarchCol">未匹配到的字段</param>
+            <returns>匹配结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.AnalysisField_noTitle(System.Data.DataTable,SeaSky.StandardLib.MyDataIO.DataImportOrderInfo@,SeaSky.StandardLib.MyDataIO.DataImportDescCol@,System.Collections.Generic.Dictionary{System.String,System.Int32}@)">
+            <summary>
+            分析所需字段与导入文件内字段的匹配关系，无标题行
+            </summary>
+            <param name="dtSummer">10行摘要数据</param>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">导入字段描述</param>
+            <param name="noMarchCol">未匹配到的字段</param>
+            <returns>匹配结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.LoadDataToDataTable(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo,SeaSky.StandardLib.MyDataIO.DataImportDescCol,System.Data.DataTable@)">
+            <summary>
+            将数据导入到DataTable
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <param name="descCol">设置的字段导入描述</param>
+            <param name="dtResult">获取到数据的DataTable</param>
+            <returns>导入结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportBase.checkFileType(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo)">
+            <summary>
+            根据导入文件名，判断文件类型是否符合导入类型
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyDataIO.ImportHelper">
+            <summary>
+            数据导入接口工厂类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyDataIO.ImportHelper.CreateImportHelper(SeaSky.StandardLib.MyDataIO.DataImportOrderInfo)">
+            <summary>
+            根据导入命令描述，创建数据导入操作类
+            </summary>
+            <param name="orderInfo">导入命令描述</param>
+            <returns>数据导入操作类</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyEncrypt.MD5Method">
+            <summary>
+            MD5加密类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.MD5Method.MD5(System.String)">
+            <summary>
+            (原)MD5加密
+            </summary>
+            <param name="strPwd">待加密字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.MD5Method.StringToMD5(System.String)">
+            <summary>
+            MD5+Base64标准加密
+            </summary>
+            <param name="strPwd">待加密字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.MD5Method.StringToMd5Hash(System.String)">
+            <summary>
+            MD5Hash加密
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyEncrypt.SimpleMethod">
+            <summary>
+            简单加密解密类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.SimpleMethod.getConfusedString(System.String)">
+            <summary>
+            位移加密及解密
+            </summary>
+            <param name="oriString">待加密或解密的字符串</param>
+            <returns>加密或解密后的字符串</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyEncrypt.SymmetricMethod">
+            <summary>
+            对称加密解密类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.SymmetricMethod.#ctor(System.String,System.String)">
+            <summary>
+            对称加密类的构造函数
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.SymmetricMethod.GetLegalKey">
+            <summary>
+            获得密钥
+            </summary>
+            <returns>密钥</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.SymmetricMethod.GetLegalIV">
+            <summary>
+            获得初始向量IV
+            </summary>
+            <returns>初试向量IV</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.SymmetricMethod.Encrypto(System.String)">
+            <summary>
+            加密方法
+            </summary>
+            <param name="Source">待加密的串</param>
+            <returns>经过加密的串</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyEncrypt.SymmetricMethod.Decrypto(System.String)">
+            <summary>
+            解密方法
+            </summary>
+            <param name="Source">待解密的串</param>
+            <returns>经过解密的串</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.EnumErrorCode">
+            <summary>
+            错误代码枚举
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumErrorCode.系统异常">
+            <summary>
+            系统异常
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumErrorCode.请求参数错误">
+            <summary>
+            请求参数错误
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumErrorCode.参数校验未通过">
+            <summary>
+            参数校验未通过
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumErrorCode.业务执行失败">
+            <summary>
+            业务执行失败
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumErrorCode.未登入">
+            <summary>
+            未登入
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumErrorCode.没有权限">
+            <summary>
+            没有权限
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.EnumLikeMode">
+            <summary>
+            模糊查询模式
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumLikeMode.ForwardLike">
+            <summary>
+            前%模糊查询
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumLikeMode.BackwardLike">
+            <summary>
+            后%模糊查询
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumLikeMode.AllLike">
+            <summary>
+            前后%%模糊查询
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.EnumLikeMode.NoLike">
+            <summary>
+            不模糊查询
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.MyException">
+            <summary>
+            自定义异常类
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.MyException.m_writeToDatabase">
+            <summary>
+            错误写入数据库标记
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.MyException.m_showError">
+            <summary>
+            错误是否显示标记
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.MyException.#ctor(System.String)">
+            <summary>
+            根据错误描述构造自定义异常类
+            </summary>
+            <param name="message">错误描述</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.MyException.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            根据参数构造自定义异常类
+            </summary>
+            <param name="message">错误描述</param>
+            <param name="writeToDatabase">是否写入数据库</param>
+            <param name="showError">是否显示错误</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.MyException.#ctor(System.String,System.Boolean)">
+            <summary>
+            根据参数构造自定义异常类
+            </summary>
+            <param name="message">错误描述</param>
+            <param name="writeToDatabase">是否写入数据库</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.MyException.WriteToDatabase">
+            <summary>
+            是否把此错误详细信息写入数据库
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.MyException.ShowError">
+            <summary>
+            是否显示此错误
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.PageInfo">
+            <summary>
+            查询分页描述类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.PageInfo.#ctor(System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            初始化分页描述
+            </summary>
+            <param name="requirSQL">原始sql</param>
+            <param name="orderBy">排序</param>
+            <param name="pageSize">每页显示数</param>
+            <param name="pageNO">页数</param>
+            <param name="preSql">前置sql语句</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.PageInfo.PageSQL">
+            <summary>
+            分页sql语句
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.PageInfo.PageCountSQL">
+            <summary>
+            查询记录数sql语句
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.BasePageModel">
+            <summary>
+            分页model
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.BasePageModel.PageSize">
+            <summary>
+            每页显示
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.BasePageModel.PageNO">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.PageModel`1">
+            <summary>
+            分页model
+            </summary>
+            <typeparam name="T">数据类型</typeparam>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.PageModel`1.ListData">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.PageModel`1.TotalPages">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.PageModel`1.DataCount">
+            <summary>
+            数据量
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.ResultInfo">
+            <summary>
+            自定义操作结果类
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.ResultInfo.m_successed">
+            <summary>
+            是否操作成功
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.ResultInfo.m_failReason">
+            <summary>
+            错误描述序号
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.ResultInfo.m_failReasonDesc">
+            <summary>
+            错误描述
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.ResultInfo.m_rowAffected">
+            <summary>
+            影响数据行数
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.ResultInfo.m_originValue">
+            <summary>
+            错误来源
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.ResultInfo.m_tag">
+            <summary>
+            错误辅助标签
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ResultInfo.#ctor">
+            <summary>
+            构造默认操作结果
+            默认结果为成功
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ResultInfo.#ctor(System.Int32)">
+            <summary>
+            构造默认错误操作结果
+            </summary>
+            <param name="failReason">错误描述</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ResultInfo.#ctor(System.Int32,System.Object)">
+            <summary>
+            构造错误操作结果
+            </summary>
+            <param name="failReason">错误描述</param>
+            <param name="originValue">错误来源</param>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ResultInfo.Successed">
+            <summary>
+            获取或设置是否成功
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ResultInfo.RowAffected">
+            <summary>
+            获取或设置影响数据行数
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ResultInfo.FailReasonDesc">
+            <summary>
+            获取或设置错误描述
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ResultInfo.FailReason">
+            <summary>
+            获取或设置错误序号
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ResultInfo.OriginValue">
+            <summary>
+            获取或设置错误来源
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ResultInfo.Tag">
+            <summary>
+            获取或设置错误辅助标签
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ResultInfo.UnSuccessResultInfo(System.String)">
+            <summary>
+            创建错误操作结果
+            </summary>
+            <param name="errorMsg">错误描述</param>
+            <returns>错误操作结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ResultInfo.SuccessResultInfo">
+            <summary>
+            创建成功操作结果
+            </summary>
+            <returns>成功操作结果</returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ResultInfo.SuccessResultInfo(System.String)">
+            <summary>
+            创建带有描述的成功操作结果
+            </summary>
+            <param name="infoMsg">成功描述</param>
+            <returns>带有描述的成功操作结果</returns>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.BaseResultModel`1">
+            <summary>
+            返回结果
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.BaseResultModel`1.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.BaseResultModel`1.Data">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.BaseResultModel`1.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.BaseResultModel`1.ErrorMessage">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.ErrorResultModel`1">
+            <summary>
+            错误返回
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ErrorResultModel`1.IsSuccess">
+             <summary>
+            是否成功
+             </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ErrorResultModel`1.ErrorCode">
+            <summary>
+            错误编号
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.ErrorResultModel`1.ErrorMessage">
+            <summary>
+            错误内容
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ErrorResultModel`1.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.ErrorResultModel`1.#ctor(System.String,System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="errorCode">错误编号</param>
+            <param name="errorMessage">错误内容</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.SuccessResultModel`1">
+            <summary>
+            成功信息
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.SuccessResultModel`1.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.SuccessResultModel`1.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyModel.SuccessResultModel`1.#ctor(`0)">
+            <summary>
+            构造
+            </summary>
+            <param name="model">值</param>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyModel.SystemModel">
+            <summary>
+            系统字段
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.SystemModel.GmtCreateUser">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.SystemModel.GmtCreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.SystemModel.GmtUpdateUser">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.SystemModel.GmtUpdateDate">
+            <summary>
+            修改日期
+            </summary>
+        </member>
+        <member name="P:SeaSky.StandardLib.MyModel.SystemModel.Timestamp">
+            <summary>
+            时间戳
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.SystemModel.gmtCreateUser">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.SystemModel.gmtCreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.SystemModel.gmtUpdateUser">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.SystemModel.gmtUpdateDate">
+            <summary>
+            修改日期
+            </summary>
+        </member>
+        <member name="F:SeaSky.StandardLib.MyModel.SystemModel.timestamp">
+            <summary>
+            时间戳
+            </summary>
+        </member>
+        <member name="T:SeaSky.StandardLib.MyTool.StringInfo">
+            <summary>
+            字符串处理类
+            </summary>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyTool.StringInfo.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="Str">要处理的字符串</param>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyTool.StringInfo.ToString">
+            <summary>
+            返回字符串实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SeaSky.StandardLib.MyTool.StringInfo.ToStringFiltered">
+            <summary>
+            返回去除前后空格和非打印字符后的字符串实例
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
