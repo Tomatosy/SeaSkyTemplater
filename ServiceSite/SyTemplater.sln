@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaSky.SyTemplater.WebApi",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaSky.SyTemplater.Test", "SeaSky.SyTemplater.Test\SeaSky.SyTemplater.Test.csproj", "{FD3C7DD1-0F0E-4E13-9117-7636DFD3254D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seasky.StandardLib.FrameWork", "Seasky.StandardLib.FrameWork\Seasky.StandardLib.FrameWork.csproj", "{A50D38AF-B00E-4620-91CB-CF70519813E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FD3C7DD1-0F0E-4E13-9117-7636DFD3254D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD3C7DD1-0F0E-4E13-9117-7636DFD3254D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD3C7DD1-0F0E-4E13-9117-7636DFD3254D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A50D38AF-B00E-4620-91CB-CF70519813E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A50D38AF-B00E-4620-91CB-CF70519813E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A50D38AF-B00E-4620-91CB-CF70519813E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A50D38AF-B00E-4620-91CB-CF70519813E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

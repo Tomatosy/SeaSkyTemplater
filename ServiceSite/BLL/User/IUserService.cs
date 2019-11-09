@@ -3,9 +3,9 @@
     using System;
     using System.Collections.Generic;
     using SeaSky.StandardLib.MyModel;
-	using SeaSky.SyTemplater.Model;
+    using SeaSky.SyTemplater.Model;
 
-    public interface IUserService 
+    public interface IUserService
     {
 
         /// <summary>
@@ -13,7 +13,7 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        BaseResultModel<PageModel<UserOutputModel>> ListPageUser(UserOutputModel model);
+        BaseResultModel<PageModel<UserViewModel>> ListViewPageUser(UserViewModel model);
 
         /// <summary>
         /// 新增、修改用户

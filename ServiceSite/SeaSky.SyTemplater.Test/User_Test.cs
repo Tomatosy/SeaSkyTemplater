@@ -41,17 +41,17 @@
         [TestMethod]
         public void ListPageUser_Test()
         {
-            UserOutputModel testModel = null;
-            BaseResultModel<PageModel<UserOutputModel>> result = UserService.ListPageUser(testModel);
+            UserViewModel testModel = null;
+            BaseResultModel<PageModel<UserViewModel>> result = UserService.ListViewPageUser(testModel);
             Assert.IsTrue(result.IsSuccess && result.Data.DataCount > 0, result.ErrorMessage);
 
-            testModel = new UserOutputModel()
+            testModel = new UserViewModel()
             {
                 PageNO = 1,
                 PageSize = 2,
                 UserName = "测试UserName",
             };
-            result = UserService.ListPageUser(testModel);
+            result = UserService.ListViewPageUser(testModel);
             Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
         }
 

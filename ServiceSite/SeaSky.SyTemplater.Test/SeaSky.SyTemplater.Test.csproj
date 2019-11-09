@@ -42,10 +42,12 @@
     <Reference Include="log4net">
       <HintPath>..\Lib\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity">
@@ -74,9 +76,6 @@
     <Reference Include="SeaSky.BaseData.Model">
       <HintPath>..\Lib\SeaSky.BaseData.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Seasky.StandardLib.FrameWork">
-      <HintPath>..\Lib\Seasky.StandardLib.FrameWork.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
@@ -102,6 +101,10 @@
     <ProjectReference Include="..\Model\SeaSky.SyTemplater.Model.csproj">
       <Project>{baae53e8-704f-4d07-982c-b20ac06ab83f}</Project>
       <Name>SeaSky.SyTemplater.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Seasky.StandardLib.FrameWork\Seasky.StandardLib.FrameWork.csproj">
+      <Project>{a50d38af-b00e-4620-91cb-cf70519813e7}</Project>
+      <Name>Seasky.StandardLib.FrameWork</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

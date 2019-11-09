@@ -15,13 +15,22 @@
     using SeaSky.StandardLib.MyModel;
     using SeaSky.SyTemplater.Model;
 
-    public class UserRepository : DALPageBase<UserModel, UserOutputModel>, IUserRepository
+    public class UserRepository : DALPageBase<UserModel, UserOutputModel, UserViewModel>, IUserRepository
     {
         [Dependency]
         public IUnityContainer Container { get; set; }
 
         public UserRepository() : base("BaseConn", DatabaseMode.SqlClient)
         {
+
+            //        !licenseFileModel.ListSystem[0].ListWebApi.Exists(x=>x.WebApiUrl=="CC/00")
+            //true
+            // licenseFileModel.ListSystem[0].ListWebApi.Find(x=>x.WebApiUrl=="CC/00")==null
+            //true
+            // licenseFileModel.ListSystem[0].ListWebApi.Find(x=>x.WebApiUrl=="CC/DDDD")==null
+            //false
+            //!licenseFileModel.ListSystem[0].ListWebApi.Exists(x=>x.WebApiUrl=="CC/DDDD")
+            //false
 
         }
 

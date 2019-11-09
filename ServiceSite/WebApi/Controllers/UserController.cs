@@ -20,9 +20,9 @@ namespace SeaSky.SyTemplater.WebApi.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public BaseResultModel<PageModel<UserOutputModel>> ListPageUser(UserOutputModel model)
+        public BaseResultModel<PageModel<UserViewModel>> ListViewPageUser(UserViewModel model)
         {
-            return UserService.ListPageUser(model);
+            return UserService.ListViewPageUser(model);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace SeaSky.SyTemplater.WebApi.Controllers
         [HttpPost]
         public BaseResultModel<int> DeleteUser(List<Guid?> IDs)
         {
-            if (IDs==null||IDs.Count == 0)
+            if (IDs == null || IDs.Count == 0)
             {
                 return new ErrorResultModel<int>(EnumErrorCode.请求参数错误, "参数不能为空");
             }

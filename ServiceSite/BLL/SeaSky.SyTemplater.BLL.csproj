@@ -41,10 +41,6 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\Lib\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Seasky.StandardLib.FrameWork, Version=1.19051.0.1, Culture=neutral, PublicKeyToken=81e6df8a58b04f5f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\Seasky.StandardLib.FrameWork.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -78,6 +74,10 @@
     <ProjectReference Include="..\Model\SeaSky.SyTemplater.Model.csproj">
       <Project>{baae53e8-704f-4d07-982c-b20ac06ab83f}</Project>
       <Name>SeaSky.SyTemplater.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Seasky.StandardLib.FrameWork\Seasky.StandardLib.FrameWork.csproj">
+      <Project>{a50d38af-b00e-4620-91cb-cf70519813e7}</Project>
+      <Name>Seasky.StandardLib.FrameWork</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
