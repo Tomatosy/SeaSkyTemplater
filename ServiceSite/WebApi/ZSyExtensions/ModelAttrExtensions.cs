@@ -35,7 +35,7 @@ namespace SeaSky.SyTemplater.WebApi.Controllers
 
             IEnumerator<ModelState> valueIEnumerator = ModelState.Values.GetEnumerator();
 
-            foreach (var keyItem in ModelState.Keys)
+            foreach (string keyItem in ModelState.Keys)
             {
                 valueIEnumerator.MoveNext();
                 string colName = Regex.Split(keyItem, "model.", RegexOptions.IgnoreCase)[1];
