@@ -1,0 +1,136 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class TomatoControllerSy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public TomatoControllerSy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        }
+
+
+        public override string TransformText()
+        {
+#>
+using Microsoft.Practices.Unity;
+using Tomato.StandardLib.MyModel;
+using System.Collections.Generic;
+using System.Web.Http;
+using <#=            _myConfig.NameSpace#>.BLL;
+using <#=            _myConfig.NameSpace#>.Model;
+using System;
+using <#=            _myConfig.NameSpace#>.WebApi.Log;
+using System.Net.Http;
+using Tomato.StandardLib.MyExtensions;
+namespace <#=            _myConfig.NameSpace #>.WebApi.Controllers
+{
+
+    public class <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Controller : ApiController
+    {
+
+        private I<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service = ApplicationContext.Current.UnityContainer.Resolve<I<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service>();
+
+
+        #region 基础方法
+		
+        /// <summary>
+        /// 获取<#=            _model.TableDesc #>视图列表分页
+        /// </summary>
+        /// <param name="model">ViewModel</param>
+        /// <returns>ViewModel</returns>
+        public BaseResultModel<PageModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>> ListViewPage<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel model)
+        {
+            return <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service.ListViewPage<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(model);
+        }
+		
+        /// <summary>
+        /// 获取<#=            _model.TableDesc #>列表分页
+        /// </summary>
+        /// <param name="model">InputModel</param>
+        /// <returns>OutputModel</returns>
+        public BaseResultModel<PageModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>> ListPage<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel model)
+        {
+            return <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service.ListPage<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(model);
+        }
+
+        /// <summary>
+        /// 新增、修改<#=            _model.TableDesc #>
+        /// </summary>
+        /// <param name="model">OutputModel</param>
+        /// <returns>OutputModel</returns>
+        public BaseResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel> Modify<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel model)
+        {
+            if (model == null)
+            {
+                return new ErrorResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>(EnumErrorCode.请求参数错误, "参数不能为空");
+            }
+            ModelAttrEx arrtEx = new ModelAttrEx();
+            string modelErrorMes = "";
+            if (model.<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ID.IsNullOrEmpty())
+            {
+                modelErrorMes += arrtEx.AddAttrVaild<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel>(ModelState, model);
+            }
+            else
+            {
+                modelErrorMes += arrtEx.EditAttrVaild<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel>(ModelState, model);
+            }
+            if (!modelErrorMes.IsNullOrEmpty())
+            {
+                return new ErrorResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>(EnumErrorCode.请求参数错误, modelErrorMes);
+            }
+            return <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service.Modify<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(model);
+        }
+
+        /// <summary>
+        /// 删除<#=            _model.TableDesc #> (逻辑删除)
+        /// </summary>
+        /// <param name="IDs">List-->Guid?</param>
+        /// <returns>受影响行数</returns>
+        [HttpPost]
+        public BaseResultModel<int> Delete<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(List<Guid?> IDs)
+        {
+            if (IDs==null||IDs.Count == 0)
+            {
+                return new ErrorResultModel<int>(EnumErrorCode.请求参数错误, "参数不能为空");
+            }
+            return <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service.Delete<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(IDs);
+        }
+
+        /// <summary>
+        /// 获取单个<#=            _model.TableDesc #>
+        /// </summary>
+        /// <param name="ID">Guid?</param>
+        /// <returns>ViewModel</returns>
+        [HttpPost]
+        public BaseResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel> Get<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(Guid? ID)
+        {
+            if (ID.IsNullOrEmpty())
+            {
+                return new ErrorResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>(EnumErrorCode.请求参数错误, "参数不能为空");
+            }
+            return <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service.Get<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(ID);
+        }
+        #endregion
+    }
+
+
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

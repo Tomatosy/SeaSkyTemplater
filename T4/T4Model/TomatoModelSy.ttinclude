@@ -1,0 +1,106 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class TomatoModelSy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public TomatoModelSy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        } 
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CSharpType.ToLower().Contains("date")||column.CSharpType.ToLower().Contains("int")||column.CSharpType.ToLower().Contains("bool")||column.CSharpType.ToLower().Contains("decimal")||column.CSharpType.ToLower().Contains("guid"))
+            {
+                return "?";
+            }
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        } 
+        private bool GetIsRequired(DbColumn column)
+        {
+            if(!column.IsPrimaryKey && !column.IsNullable){
+                return true;
+            }else{
+                return false;
+            }
+        } 
+        private string GetIsLikeSel(DbColumn column)
+        {
+            if(column.CSharpType.ToLower().Contains("string"))
+            {
+                return ", LikeEqual = EnumLikeMode.AllLike";
+            }
+            return   "";
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=        _myConfig.NameSpace #>
+{
+    using Tomato.StandardLib.MyAttribute;
+    using System;
+    using System.Data;
+    using Tomato.StandardLib.MyModel;
+    using System.ComponentModel.DataAnnotations;
+    using Tomato.StandardLib.FrameWork;
+
+	/// <summary>
+    /// <#=        _model.TableDesc #>
+    /// </summary>
+    [DBTableInfo("<#=        _model.TableName #>")]
+    [Serializable]
+    public partial class <#=        StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Model : BasePageModel
+    {
+
+
+<#+foreach(DbColumn column in _model.DbColumns){#>
+        ///<summary>
+        ///<#=column.Remark#>
+        ///</summary>
+       <#+if(GetIsRequired(column)){ #> [RequiredAll(ErrorMessage = "<#=column.Remark#>不能为空")]<#+}#>
+       <#+if(column.CSharpType!=null&&column.CSharpType=="string"&&column.CharLength!=-1){ #> [StringLength(<#=column.CharLength#>,ErrorMessage = "<#=column.Remark#>长度不能超过<#=column.CharLength#>")]<#+}#>
+
+        public <#=column.CSharpType#><#=GetIsNull(column)#> <#=column.ColumnNameAlias#>
+        {
+            get { return _<#=column.ColumnNameAliasLower#>; }
+            set { _<#=column.ColumnNameAliasLower#> = value; }
+        }
+
+<#+} #>
+        #region private property
+
+<#+foreach(DbColumn column in _model.DbColumns){#>
+
+		/// <summary>
+        /// <#=column.Remark#>
+        /// </summary>
+        [DBFieldInfo(ColumnName = "<#=column.ColumnNameAlias#>", IsIdentity = false, 
+IsKey = <#=column.ColumnNameAlias==_model.TablePrimarkeyName?"true":"false"#>, SqlDbType =SqlDbType.<#=column.ColumnSqlDbTypeStr#>, OrderIndex = -1, OrderAsc = true<#=GetIsLikeSel(column)#>)]
+        protected <#=column.CSharpType#><#=GetIsNull(column)#> _<#=column.ColumnNameAliasLower#><#=column.Remark.Contains("是否删除")?"=false":""#>;
+
+<#+} #>
+
+        #endregion
+
+          }
+<#+foreach(string enumStr in _model.LstEnumTypeStr){#>
+
+<#=enumStr #>
+<#+} #>
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

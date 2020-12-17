@@ -1,0 +1,52 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class SeaSkyIRepositorySy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public SeaSkyIRepositorySy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=            _myConfig.NameSpace#>.DAL
+{
+   using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SeaSky.StandardLib.MyBaseClass;
+using SeaSky.StandardLib.MyModel;
+using <#=            _myConfig.NameSpace#>.Model;
+
+    public interface I<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository : IDALBaseNew<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Model, <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel, <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>, IDALPageBaseNew<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Model, <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel, <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>
+    {
+
+    }
+
+
+}
+
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

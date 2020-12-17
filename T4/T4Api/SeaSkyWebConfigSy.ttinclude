@@ -1,0 +1,30 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class SeaSkyWebConfigSy : CSharpTemplate
+    {
+        private string _webConfigStr;
+
+        public SeaSkyWebConfigSy(string webConfigStr)
+        {
+            _webConfigStr = webConfigStr;
+        }
+
+
+        public override string TransformText()
+        {
+#>
+  <unity>
+    <containers>
+      <container name="defaultContainer">
+<#=            _webConfigStr   #>
+      </container>
+    </containers>
+  </unity>
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

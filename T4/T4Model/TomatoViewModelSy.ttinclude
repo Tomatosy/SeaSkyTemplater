@@ -1,0 +1,94 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class TomatoViewModelSy : CSharpTemplate
+    {
+        private ViewInfo _model;
+        private MyConfig _myConfig;
+
+        public TomatoViewModelSy(ViewInfo model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(ViewColInfo column)
+        {
+            if(column.CSharpType.ToLower().Contains("date")||column.CSharpType.ToLower().Contains("int")||column.CSharpType.ToLower().Contains("bool"))
+            {
+                return "?";
+            }
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        } 
+        private bool GetIsRequired(ViewColInfo column)
+        {
+            if(!column.IsPrimaryKey && !column.IsNullable){
+                return true;
+            }else{
+                return false;
+            }
+        } 
+        private string GetIsLikeSel(ViewColInfo column)
+        {
+            if(column.CSharpType.ToLower().Contains("string"))
+            {
+                return ", LikeEqual = EnumLikeMode.AllLike";
+            }
+            return   "";
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=_myConfig.NameSpace #>
+{
+    using Tomato.StandardLib.MyAttribute;
+    using System.Data;
+    using Tomato.StandardLib.MyModel;
+    using System;
+
+	/// <summary>
+    /// <#=            _model.TableDesc #>输出扩展类
+    /// </summary>
+    [DBTableInfo("<#=_myConfig.TableName #><#=_model.ViewName.Replace(_myConfig.TableName,"")#>")]
+    public partial class <#=StringHandler.GetCamel(_model.ViewName.Replace(_myConfig.TableName,""))#>ViewModel: <#=StringHandler.GetCamel(_model.ViewName.Replace(_myConfig.TableName,""))#>Model
+    {
+<#+            foreach(ViewColInfo column in _model.ViewColInfos){#>
+        ///<summary>
+        ///<#=                column.ColDesc#>
+        ///</summary>
+        public <#=                column.CSharpType#><#=                GetIsNull(column)#> <#=                column.ColumnNameAlias#>
+        {
+            get { return _<#=column.ColumnNameAliasLower#>; }
+            set { _<#=column.ColumnNameAliasLower#> = value; }
+        }
+
+<#+} #>
+        #region private property
+
+<#+foreach(ViewColInfo column in _model.ViewColInfos){#>
+
+		/// <summary>
+        /// <#=                column.ColDesc#>
+        /// </summary>
+        [DBFieldInfo(ColumnName = "<#=                column.ColumnNameAlias#>", IsIdentity = false, 
+IsKey = <#=                column.IsPrimaryKey?"true":"false"#>, SqlDbType =SqlDbType.<#=                column.ColumnSqlDbTypeStr#>, OrderIndex = -1, OrderAsc = true<#=                GetIsLikeSel(column)#>)]
+        protected <#=                column.CSharpType#><#=                GetIsNull(column)#> _<#=                column.ColumnNameAliasLower#><#=                column.ColumnNameAliasLower=="isDelete"?"=false":""#>;
+
+<#+} #>
+
+        #endregion
+
+          }
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

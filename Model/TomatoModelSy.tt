@@ -1,0 +1,106 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs"#>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="SY_T4Helper" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ assembly name="$(SolutionDir)T4/SY_T4Helper.dll" #>
+<#@ include file="$(SolutionDir)T4/T4Model/TomatoModelSy.ttinclude" #>
+<#@ include file="$(SolutionDir)T4/T4Model/TomatoInputModelSy.ttinclude" #>
+<#@ include file="$(SolutionDir)T4/T4Model/TomatoOutputModelSy.ttinclude" #>
+<#@ include file="$(SolutionDir)T4/T4Model/TomatoViewModelSy.ttinclude" #>
+
+
+<# 
+    // 配置config
+    string solutionsPath = Host.ResolveAssemblyReference("$(SolutionDir)");
+    MyConfig myConfig=ConfigHandler.GetConfigByFile(solutionsPath+"T4\\T4Helper.json"); 
+    myConfig.IsOverrideFile=true;
+    myConfig.NameSpace+=".Model";
+    List<string> SonTableList = new List<string>();
+    SonTableList.AddRange(myConfig.SonTableList);
+
+    List<DbTable> tableInfos=DbHandler.GetDbTables(myConfig.ConnectionString, myConfig.TableName);
+    string curPath = Path.GetDirectoryName(Host.TemplateFile);
+
+    foreach(DbTable tableInfo in tableInfos)
+    {
+        string tableName=tableInfo.TableName.Replace(myConfig.TableName,"");
+        if(!SonTableList.Exists(x=>x==tableName))
+        {
+            continue;
+        }
+        string destPath = Path.Combine(curPath, tableName);
+        string fileName = string.Format(@"{0}\{1}.cs",destPath, StringHandler.GetCamel(tableName)+"Model");
+        TomatoModelSy template = new TomatoModelSy(tableInfo,myConfig);
+        template.Output.Encoding = Encoding.UTF8;
+        template.Output.PreserveExistingFile =!myConfig.IsOverrideFile;
+        template.RenderToFile(fileName);
+
+        fileName = string.Format(@"{0}\{1}.cs", destPath, StringHandler.GetCamel(tableName)+"InputModel");
+        TomatoInputModelSy  template1 = new TomatoInputModelSy(tableInfo,myConfig);
+        template1.Output.Encoding = Encoding.UTF8;
+        template1.Output.PreserveExistingFile =!myConfig.IsOverrideFile;
+        template1.RenderToFile(fileName);
+
+        fileName = string.Format(@"{0}\{1}.cs", destPath, StringHandler.GetCamel(tableName)+"OutputModel");
+        TomatoOutputModelSy  template2 = new TomatoOutputModelSy(tableInfo,myConfig);
+        template2.Output.Encoding = Encoding.UTF8;
+        template2.Output.PreserveExistingFile =!myConfig.IsOverrideFile;
+        template2.RenderToFile(fileName);
+    }
+
+    myConfig.TableName="View_tb_";
+    List<ViewInfo> viewInfos=DbHandler.GetViewInfos(myConfig.ConnectionString, myConfig.TableName);
+
+
+    List<ViewInfo> tempViewInfo = new List<ViewInfo>();
+    foreach(ViewInfo viewInfo in viewInfos)
+    { 
+        var tempTableInfo=tableInfos.Find(x=>x.TableName.Replace("tb_","")==viewInfo.ViewName.Replace(myConfig.TableName,""));
+        if(tempTableInfo!=null){
+            List<ViewColInfo> tempViewColInfo = new List<ViewColInfo>();
+            foreach(ViewColInfo viewColInfo in viewInfo.ViewColInfos)
+            {
+                if (!tempTableInfo.DbColumns .Any(x => x.ColumnName == viewColInfo.ColumnName))
+                {
+                    tempViewColInfo.Add(viewColInfo);
+                }
+            }
+            tempViewInfo.Add(new ViewInfo(){
+                    TableDesc=viewInfo.TableDesc,
+                    ViewName=viewInfo.ViewName,
+                    ViewColInfos=tempViewColInfo
+                    });
+        }
+    }
+
+
+    foreach(ViewInfo viewInfo in tempViewInfo)
+    { 
+        string tableName=viewInfo.ViewName.Replace(myConfig.TableName,"");
+        if(!SonTableList.Exists(x=>x==tableName))
+        {
+            continue;
+        }
+        string destPath = Path.Combine(curPath, tableName);
+        string fileName = string.Format(@"{0}\{1}.cs", destPath, StringHandler.GetCamel(tableName)+"ViewModel");
+        TomatoViewModelSy  template3 = new TomatoViewModelSy(viewInfo,myConfig);
+        template3.Output.Encoding = Encoding.UTF8;
+        template3.Output.PreserveExistingFile =!myConfig.IsOverrideFile;
+        template3.RenderToFile(fileName);
+
+        
+    }
+#>
+
+
+
+
+
+
+

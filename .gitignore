@@ -195,5 +195,6 @@ _Pvt_Extensions
 *.dll
 
 !Lib/*
+!UnitTest_HealthAudit/Lib/*
 .idea/*
 WebApi/Cache_File/

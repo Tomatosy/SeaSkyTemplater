@@ -1,0 +1,73 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class SeaSkyRepositorySy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public SeaSkyRepositorySy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=            _myConfig.NameSpace#>.DAL
+{
+using Microsoft.Practices.Unity;
+using SeaSky.StandardLib.MyBaseClass;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SeaSky.StandardLib.DAL.Base;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.Common;
+using SeaSky.StandardLib.MyModel;
+using <#=            _myConfig.NameSpace#>.Model;
+
+    public class <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository : DALPageBaseNew<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Model,<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel, <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>, I<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository
+    {
+        [Dependency]
+        public IUnityContainer Container { get; set; }
+
+        public <#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository() : base("BaseConn", DatabaseMode.SqlClient)
+        {
+
+        }
+
+        /// <summary>
+        /// 获取数据库操作人
+        /// </summary>
+        /// <returns>操作人</returns>
+        public override string GetOperater()
+        {
+            return ServiceContext.Current.UserName;
+        }
+
+
+    }
+
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

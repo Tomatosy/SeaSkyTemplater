@@ -1,0 +1,53 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class SeaSkyInputModelSy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public SeaSkyInputModelSy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=_myConfig.NameSpace #>
+{
+    using SeaSky.StandardLib.MyAttribute;
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using SeaSky.StandardLib.MyModel;
+
+	/// <summary>
+    /// <#=_model.TableDesc #>输入扩展类
+    /// </summary>
+    public partial class <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel : <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Model
+    {
+
+    }
+
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

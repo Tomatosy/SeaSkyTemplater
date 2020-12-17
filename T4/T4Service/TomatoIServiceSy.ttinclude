@@ -1,0 +1,82 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class TomatoIServiceSy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public TomatoIServiceSy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=            _myConfig.NameSpace #>.BLL
+{
+    using System;
+    using System.Collections.Generic;
+    using Tomato.StandardLib.MyModel;
+using <#=            _myConfig.NameSpace#>.Model;
+
+    public interface I<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service 
+    {
+
+        #region 基础方法
+        /// <summary>
+        /// 获取<#=            _model.TableDesc #>视图列表分页
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        BaseResultModel<PageModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>> ListViewPage<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel model);
+
+        /// <summary>
+        /// 获取<#=            _model.TableDesc #>列表分页
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        BaseResultModel<PageModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>> ListPage<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel model);
+
+        /// <summary>
+        /// 新增、修改<#=            _model.TableDesc #>
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        BaseResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel> Modify<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel model);
+
+        /// <summary>
+        /// 删除<#=            _model.TableDesc #> (逻辑删除)
+        /// </summary>
+        /// <param name="IDs"></param>
+        /// <returns></returns>
+        BaseResultModel<int> Delete<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(List<Guid?> IDs);
+
+        /// <summary>
+        /// 获取单个<#=            _model.TableDesc #>
+        /// </summary>
+        BaseResultModel<<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel> Get<#=            StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(Guid? ID);
+
+        #endregion  
+  }
+
+
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>

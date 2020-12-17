@@ -1,0 +1,47 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs"#>
+<#@ assembly name="System.Core.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="SY_T4Helper" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ assembly name="$(SolutionDir)T4/SY_T4Helper.dll" #>
+<#@ include file="$(SolutionDir)T4/T4Test/TomatoNTestSy.ttinclude" #>
+
+
+<# 
+    // 配置config
+    string solutionsPath = Host.ResolveAssemblyReference("$(SolutionDir)");
+    MyConfig myConfig=ConfigHandler.GetConfigByFile(solutionsPath+"T4\\T4Helper.json"); 
+    myConfig.IsOverrideFile=true;
+
+    List<DbTable> tableInfos=DbHandler.GetDbTables(myConfig.ConnectionString, myConfig.TableName);
+    string curPath = Path.GetDirectoryName(Host.TemplateFile);
+
+    List<string> SonTableList = new List<string>();
+    SonTableList.AddRange(myConfig.SonTableList);
+    foreach(DbTable tableInfo in tableInfos)
+    {
+        string tableName=tableInfo.TableName.Replace(myConfig.TableName,"");
+        if(!SonTableList.Exists(x=>x==tableName))
+        {
+            continue;
+        }
+        string destPath = Path.Combine(curPath, tableName);
+        string fileName = string.Format(@"{0}\{1}.cs",curPath, StringHandler.GetCamel(tableName)+"_Test");
+        TomatoNTestSy template = new TomatoNTestSy(tableInfo,myConfig);
+        template.Output.Encoding = Encoding.UTF8;
+        template.Output.PreserveExistingFile =!myConfig.IsOverrideFile;
+        template.RenderToFile(fileName);
+    }
+#>
+
+
+
+
+
+
+

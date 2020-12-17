@@ -1,0 +1,220 @@
+﻿<#+
+    // <copyright company="toamto@石阳">
+    //  Copyright © toamto@石阳. All Rights Reserved.
+    // </copyright>
+
+    public class SeaSkyServiceSy : CSharpTemplate
+    {
+        private DbTable _model;
+        private MyConfig _myConfig;
+
+        public SeaSkyServiceSy(DbTable model,MyConfig myConfig)
+        {
+            _model = model;
+            _myConfig=myConfig;
+        }
+        private string GetIsNull(DbColumn column)
+        {
+            if(column.CommonType.IsValueType && column.IsNullable){
+                return "?";
+            }else{
+                return "";
+            }
+        }
+
+
+        public override string TransformText()
+        {
+#>
+namespace <#=_myConfig.NameSpace #>.BLL
+{
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using Microsoft.Practices.Unity;
+using System.Transactions;
+using Newtonsoft.Json;
+using SeaSky.StandardLib.MyModel;
+using <#=_myConfig.NameSpace#>.Model;
+using <#=_myConfig.NameSpace#>.Model.Enum;
+using <#=_myConfig.NameSpace#>.DAL;
+using SeaSky.StandardLib.MyExtensions;
+
+    public class <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service : I<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Service
+    {
+        [Dependency]
+        public I<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository { get; set; }
+
+
+        #region 基础方法
+        /// <summary>
+        /// 获取<#=_model.TableDesc #>视图列表分页
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public BaseResultModel<PageModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>> ListViewPage<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel model)
+        {
+            try
+            {
+                if (model == null)
+                {
+                    model = new <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel()
+                    {
+                        PageNO = 1,
+                        PageSize = int.MaxValue
+                    };
+                }
+                // 开启查询outModel里面的视图
+                using (this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.BeginSelView())
+                {
+                  using (this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.BeginLikeMode())
+                  {
+                      return new SuccessResultModel<PageModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>>(this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.ListViewPage(model));
+                  }
+                }
+            }
+            catch (Exception e)
+            {
+                LogWriter.WriteLog(EnumLogLevel.Fatal, "ListViewPage<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", JsonConvert.SerializeObject(model), "<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", "获取<#=_model.TableDesc #>视图列表分页查询数据时发生错误.", e);
+                return new ErrorResultModel<PageModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>>(EnumErrorCode.系统异常, "获取<#=_model.TableDesc #>视图列表分页查询数据时发生错误!");
+            }
+        }
+		
+        /// <summary>
+        /// 获取<#=_model.TableDesc #>列表分页
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public BaseResultModel<PageModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>> ListPage<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel model)
+        {
+            try
+            {
+                if (model == null)
+                {
+                    model = new <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel()
+                    {
+                        PageNO = 1,
+                        PageSize = int.MaxValue
+                    };
+                }
+                using (this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.BeginLikeMode())
+                {
+                    return new SuccessResultModel<PageModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>>(this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.ListPage(model));
+                }
+            }
+            catch (Exception e)
+            {
+                LogWriter.WriteLog(EnumLogLevel.Fatal, "ListPage<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", JsonConvert.SerializeObject(model), "<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", "获取<#=_model.TableDesc #>列表分页查询数据时发生错误.", e);
+                return new ErrorResultModel<PageModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>>(EnumErrorCode.系统异常, "获取<#=_model.TableDesc #>列表分页查询数据时发生错误!");
+            }
+        }
+
+        /// <summary>
+        /// 新增、修改<#=_model.TableDesc #>
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public BaseResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel> Modify<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel model)
+        {
+            SuccessResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel> result = new SuccessResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>();
+            ErrorResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel> error = new ErrorResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>OutputModel>();
+            try
+            {
+                if (model.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ID.IsNullOrEmpty())
+                {
+                    result.Data = this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.InsertAndReturn(model);
+                }
+                else
+                {
+                    result.Data = this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.UpdateWithKeysAndReturn(model);
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                LogWriter.WriteLog(EnumLogLevel.Fatal, "Modify<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", JsonConvert.SerializeObject(model), "<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", "新增、修改<#=_model.TableDesc #>异常！", ex);
+                error.ErrorCode = EnumErrorCode.系统异常;
+                error.ErrorMessage = "新增、修改<#=_model.TableDesc #>异常!";
+                return error;
+            }
+        }
+
+        /// <summary>
+        /// 删除<#=_model.TableDesc #> (逻辑删除)
+        /// </summary>
+        /// <param name="IDs"></param>
+        /// <returns></returns>
+        public BaseResultModel<int> Delete<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(List<Guid?> IDs)
+        {
+            SuccessResultModel<int> result = new SuccessResultModel<int>();
+            ErrorResultModel<int> error = new ErrorResultModel<int>();
+            try
+            {
+                List<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel> delList = new List<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel>();
+                foreach (Guid? item in IDs)
+                {
+                    delList.Add(new <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>InputModel()
+                    {
+                        <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ID = item
+                    });
+                }
+                result.Data = this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.DeleteWithKeys(delList.ToArray());
+
+                if(result.Data==0)
+                {
+                    error.ErrorCode=EnumErrorCode.业务执行失败;
+                    error.ErrorMessage="请确认需要删除的数据！";
+                    return error;
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                LogWriter.WriteLog(EnumLogLevel.Fatal, "Delete<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", JsonConvert.SerializeObject(IDs), "<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", "删除<#=_model.TableDesc #> (逻辑删除)异常！", ex);
+                error.ErrorCode = EnumErrorCode.系统异常;
+                error.ErrorMessage = "删除<#=_model.TableDesc #> (逻辑删除)异常!";
+                return error;
+            }
+        }
+
+        /// <summary>
+        /// 获取单个<#=_model.TableDesc #>
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public BaseResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel> Get<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>(Guid? ID)
+        {
+            try
+            {
+                // 开启查询outModel里面的视图
+                using (this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.BeginSelView())
+                {
+                    using (this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.BeginLikeMode())
+                    {
+                      return new SuccessResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>(
+                          this.<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>Repository.SelectWithViewModel(new <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel()
+                          {
+                              <#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ID = ID
+                          }
+                      ));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                LogWriter.WriteLog(EnumLogLevel.Fatal, "Get<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", ID+ string.Empty, "<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>", "获取单个<#=_model.TableDesc #>异常", e);
+                return new ErrorResultModel<<#=StringHandler.GetCamel(_model.TableName.Replace(_myConfig.TableName,""))#>ViewModel>(EnumErrorCode.系统异常, "获取单个<#=_model.TableDesc #>异常!");
+            }
+        }
+        #endregion
+    }
+}
+<#+
+            return this.GenerationEnvironment.ToString();
+        }
+    }
+#>
