@@ -31,13 +31,9 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public DataTable GetDynamicJoinTableData(TableSelModel model)
+        public DataTable ListPageDynamicJoinModelList(TableSelModel model)
         {
-            string joinTableID = model.JoinMasterTableName + "ID";
-            if (model.JoinMasterTableName.ToLower() == "tb_projectsmanage")
-            {
-                joinTableID = "ProjectsManageID";
-            }
+            string joinTableID = model.JoinMasterTableName.Replace("tb_", "") + "ID";
             string sql = @"select * from  " + model.TableName + " TB left join " + model.JoinMasterTableName + " joinTB on TB.dynamicID=joinTB." + joinTableID + "  where TB.isdelete=0 and joinTB.isdelete=0 {0} ";
             Collection<IDataParameter> parms = new Collection<IDataParameter>();
 
@@ -56,7 +52,7 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public DataTable GetDynamicTableData(TableSelModel model)
+        public DataTable ListPageDynamicModelList(TableSelModel model)
         {
             string sql = @"select * from  " + model.TableName + " where isdelete=0  {0} ";
             Collection<IDataParameter> parms = new Collection<IDataParameter>();

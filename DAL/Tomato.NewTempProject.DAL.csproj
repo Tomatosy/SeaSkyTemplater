@@ -51,8 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appraisals\AppraisalsRepository.cs" />
-    <Compile Include="Appraisals\IAppraisalsRepository.cs" />
     <Compile Include="Menu\IMenuRepository.cs" />
     <Compile Include="Menu\MenuRepository.cs" />
     <Compile Include="ModelDetail\IModelDetailRepository.cs" />

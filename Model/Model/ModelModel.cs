@@ -30,7 +30,7 @@
         ///主键编号
         ///</summary>
         [RequiredAll(ErrorMessage = "主键编号不能为空")]
-        [StringLength(50, ErrorMessage = "主键编号长度不能超过50个字符")]
+        [StringLength(50, ErrorMessage = "主键编号长度不能超过50")]
         public string ModelCode
         {
             get { return _modelCode; }
@@ -41,7 +41,7 @@
         ///项目名称
         ///</summary>
         [RequiredAll(ErrorMessage = "项目名称不能为空")]
-        [StringLength(50, ErrorMessage = "项目名称长度不能超过50个字符")]
+        [StringLength(50, ErrorMessage = "项目名称长度不能超过50")]
         public string ModelName
         {
             get { return _modelName; }

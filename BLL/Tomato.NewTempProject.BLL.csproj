@@ -61,8 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appraisals\AppraisalsService.cs" />
-    <Compile Include="Appraisals\IAppraisalsService.cs" />
     <Compile Include="Menu\IMenuService.cs" />
     <Compile Include="Menu\MenuService.cs" />
     <Compile Include="ModelDetail\IModelDetailService.cs" />
@@ -105,8 +103,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TomatoServiceSy.cs</LastGenOutput>
       <LastOutputs>
-.\Appraisals\AppraisalsService.cs
-.\Appraisals\IAppraisalsService.cs
+.\Model\IModelService.cs
+.\Model\ModelService.cs
+.\ModelDetail\IModelDetailService.cs
+.\ModelDetail\ModelDetailService.cs
 </LastOutputs>
     </Content>
   </ItemGroup>

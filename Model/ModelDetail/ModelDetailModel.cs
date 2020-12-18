@@ -49,7 +49,7 @@
         ///<summary>
         ///列名
         ///</summary>
-        [RequiredAll(ErrorMessage = "列名不能为空")]        [StringLength(50,ErrorMessage = "列名长度不能超过50个字符")]
+        [RequiredAll(ErrorMessage = "列名不能为空")]        [StringLength(50,ErrorMessage = "列名长度不能超过50")]
         public string ColName
         {
             get { return _colName; }
@@ -69,7 +69,7 @@
         ///<summary>
         ///字段类型（文本、数字、日期、布尔、下拉框、附件）
         ///</summary>
-        [RequiredAll(ErrorMessage = "字段类型（文本、数字、日期、布尔、下拉框、附件）不能为空")]        [StringLength(50,ErrorMessage = "字段类型（文本、数字、日期、布尔、下拉框、附件）长度不能超过50个字符")]
+        [RequiredAll(ErrorMessage = "字段类型（文本、数字、日期、布尔、下拉框、附件）不能为空")]        [StringLength(50,ErrorMessage = "字段类型（文本、数字、日期、布尔、下拉框、附件）长度不能超过50")]
         public string ColType
         {
             get { return _colType; }

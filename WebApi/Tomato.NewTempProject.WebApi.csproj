@@ -230,7 +230,6 @@
     <Compile Include="Common\NopiExcel.cs" />
     <Compile Include="Common\PdfConverHelper.cs" />
     <Compile Include="Common\WordTemplateHelper.cs" />
-    <Compile Include="Controllers\AppraisalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
@@ -278,7 +277,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TomatoControllerSy.cs</LastGenOutput>
       <LastOutputs>
-.\Controllers\AppraisalsController.cs
+.\Controllers\ModelController.cs
+.\Controllers\ModelDetailController.cs
 .\unity.config
 </LastOutputs>
     </Content>

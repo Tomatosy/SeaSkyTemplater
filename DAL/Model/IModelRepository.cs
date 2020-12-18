@@ -17,14 +17,14 @@
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        DataTable GetDynamicJoinTableData(TableSelModel model);
+        DataTable ListPageDynamicJoinModelList(TableSelModel model);
 
         /// <summary>
         /// 获取动态表数据
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        DataTable GetDynamicTableData(TableSelModel model);
+        DataTable ListPageDynamicModelList(TableSelModel model);
 
         /// <summary>
         /// 批量删除动态表

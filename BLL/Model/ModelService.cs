@@ -35,7 +35,7 @@
         {
             try
             {
-                System.Data.DataTable selTable = this.ModelRepository.GetDynamicJoinTableData(model);
+                System.Data.DataTable selTable = this.ModelRepository.ListPageDynamicJoinModelList(model);
 
                 if (selTable.Columns.Contains(model.OrderByName ?? "~!@"))
                 {
@@ -69,7 +69,7 @@
         {
             try
             {
-                System.Data.DataTable selTable = this.ModelRepository.GetDynamicTableData(model);
+                System.Data.DataTable selTable = this.ModelRepository.ListPageDynamicModelList(model);
 
                 if (selTable.Columns.Contains(model.OrderByName ?? "~!@"))
                 {
@@ -103,11 +103,11 @@
         {
             try
             {
-                if (!model.ColSel.Exists(x => x.ColName == model.TableName + "ID"))
+                if (!model.ColSel.Exists(x => x.ColName.ToLower() == (model.TableName.Replace("tb_", "") + "ID").ToLower()))
                 {
                     model.ColSel.Add(new TableColSelModel
                     {
-                        ColName = model.TableName + "ID",
+                        ColName = model.TableName.Replace("tb_", "") + "ID",
                         ColValue = Guid.NewGuid() + string.Empty
                     });
                 }
@@ -135,7 +135,6 @@
             catch (Exception e)
             {
                 LogWriter.WriteLog(EnumLogLevel.Fatal, "MultiLineUpdateDynamicModel", JsonConvert.SerializeObject(model), "Model", "多行修改动态模块表 异常.", e);
-                //return new ErrorResultModel<int>(EnumErrorCode.系统异常, "多行修改动态模块表 异常!");
                 return new ErrorResultModel<int>(EnumErrorCode.系统异常, e.Message);
             }
         }
@@ -368,7 +367,7 @@
             {
                 ModelID = model.ModelID,
                 ColIndex = 1,
-                ColName = $"{model.ModelCode}ID",
+                ColName = $"{model.ModelCode.Replace("tb_", "")}ID",
                 ColMemo = "主键ID",
                 ColType = "uniqueidentifier"
             });

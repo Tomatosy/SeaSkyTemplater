@@ -46,10 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appraisals\AppraisalsInputModel.cs" />
-    <Compile Include="Appraisals\AppraisalsModel.cs" />
-    <Compile Include="Appraisals\AppraisalsOutputModel.cs" />
-    <Compile Include="Appraisals\AppraisalsViewModel.cs" />
     <Compile Include="Enum\AllEnum.cs" />
     <Compile Include="Menu\MenuInputModel.cs" />
     <Compile Include="Menu\MenuModel.cs" />
@@ -91,10 +87,14 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TomatoModelSy.cs</LastGenOutput>
       <LastOutputs>
-.\Appraisals\AppraisalsInputModel.cs
-.\Appraisals\AppraisalsModel.cs
-.\Appraisals\AppraisalsOutputModel.cs
-.\Appraisals\AppraisalsViewModel.cs
+.\Model\ModelInputModel.cs
+.\Model\ModelModel.cs
+.\Model\ModelOutputModel.cs
+.\Model\ModelViewModel.cs
+.\ModelDetail\ModelDetailInputModel.cs
+.\ModelDetail\ModelDetailModel.cs
+.\ModelDetail\ModelDetailOutputModel.cs
+.\ModelDetail\ModelDetailViewModel.cs
 </LastOutputs>
     </Content>
   </ItemGroup>

@@ -39,6 +39,86 @@
 
 
 
+        /// <summary>
+        /// 查询动态连接表分页
+        /// </summary>
+        [TestMethod]
+        public void ListPageDynamicJoinModelList()
+        {
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
+            ModelInputModel inputSon = new ModelInputModel()
+            {
+                ModelCode = "tb_testDetail",
+                ModelName = "测试子表"
+            };
+            BaseResultModel<ModelOutputModel> resultSon = this.ModelService.ModifyModel(inputSon);
+            Assert.IsTrue(resultSon.IsSuccess, resultSon.ErrorMessage);
+
+            // 新增动态表字段
+            ModelDetailInputModel inputSonModel = new ModelDetailInputModel()
+            {
+                ColIndex = 1,
+                ColMemo = "备注",
+                ColName = "dynamicID",
+                ColType = "nvarchar(256)",
+                ModelID = resultSon?.Data?.ModelID
+            };
+            BaseResultModel<ModelDetailOutputModel> resultSonDetail = this.ModelDetailService.ModifyModelDetail(inputSonModel);
+            Assert.IsTrue(resultSonDetail.IsSuccess, resultSonDetail.ErrorMessage);
+
+            // 新增动态表数据
+            string tempGuid = Guid.NewGuid() + string.Empty;
+            TableSelModel selMasterTable = new TableSelModel()
+            {
+                TableName = inputMaster.ModelCode,
+                ColSel = new List<TableColSelModel>() {
+                    new TableColSelModel(){
+                        ColName="testID",
+                        ColValue=tempGuid
+                    }
+                }
+            };
+            BaseResultModel<int> resultMasterTab = this.ModelService.InsertDynamicModel(selMasterTable);
+            Assert.IsTrue(resultMasterTab.IsSuccess, resultMasterTab.ErrorMessage);
+
+            TableSelModel selSonTable = new TableSelModel()
+            {
+                TableName = inputSon.ModelCode,
+                ColSel = new List<TableColSelModel>() {
+                    new TableColSelModel(){
+                        ColName="dynamicID",
+                        ColValue=tempGuid
+                    }
+                }
+            };
+            BaseResultModel<int> resultSonTab = this.ModelService.InsertDynamicModel(selSonTable);
+            Assert.IsTrue(resultSonTab.IsSuccess, resultSonTab.ErrorMessage);
+
+            // 查询动态表分页
+            TableSelModel selTableList = new TableSelModel()
+            {
+                PageNO = 1,
+                PageSize = 20,
+                TableName = inputSon.ModelCode,
+                JoinMasterTableName = inputMaster.ModelCode,
+                WhereSel = new List<TableColSelModel>() {
+                    new TableColSelModel(){
+                        ColName="dynamicID",
+                        ColValue=tempGuid
+                    }
+                }
+            };
+            BaseResultModel<ResultModel> resultTableList = this.ModelService.ListPageDynamicJoinModelList(selTableList);
+            Assert.IsTrue(resultTableList.IsSuccess && resultTableList.Data.dataCount > 0, resultTableList.ErrorMessage);
+        }
 
         /// <summary>
         /// 查询动态表分页
@@ -46,20 +126,57 @@
         [TestMethod]
         public void ListPageDynamicModelList()
         {
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
+            // 新增动态表字段
+            ModelDetailInputModel inputModel = new ModelDetailInputModel()
+            {
+                ColIndex = 1,
+                ColMemo = "AA",
+                ColName = "BB",
+                ColType = "nvarchar(256)",
+                ModelID = resultMaster?.Data?.ModelID
+            };
+
+            BaseResultModel<ModelDetailOutputModel> resultDetail = this.ModelDetailService.ModifyModelDetail(inputModel);
+            Assert.IsTrue(resultDetail.IsSuccess, resultDetail.ErrorMessage);
+
+            // 新增动态表数据
             TableSelModel selTable = new TableSelModel()
             {
-                PageNO = 1,
-                PageSize = 20,
-                TableName = "tb_AcademicYear",
-                WhereSel = new List<TableColSelModel>() {
+                TableName = inputMaster.ModelCode,
+                ColSel = new List<TableColSelModel>() {
                     new TableColSelModel(){
-                        ColName="Status",
-                        ColValue="2019"
+                        ColName=inputModel.ColName,
+                        ColValue="BBValue"
                     }
                 }
             };
-            BaseResultModel<ResultModel> result = this.ModelService.ListPageDynamicModelList(selTable);
+            BaseResultModel<int> result = this.ModelService.InsertDynamicModel(selTable);
             Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
+
+            // 查询动态表分页
+            TableSelModel selTableList = new TableSelModel()
+            {
+                PageNO = 1,
+                PageSize = 20,
+                TableName = "tb_test",
+                WhereSel = new List<TableColSelModel>() {
+                    new TableColSelModel(){
+                        ColName=inputModel.ColName,
+                        ColValue="BBValue"
+                    }
+                }
+            };
+            BaseResultModel<ResultModel> resultTableList = this.ModelService.ListPageDynamicModelList(selTableList);
+            Assert.IsTrue(resultTableList.IsSuccess && resultTableList.Data.dataCount > 0, resultTableList.ErrorMessage);
         }
 
 
@@ -70,21 +187,36 @@
         [TestMethod]
         public void InsertDynamicModel()
         {
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
+            // 新增动态表字段
+            ModelDetailInputModel inputModel = new ModelDetailInputModel()
+            {
+                ColIndex = 1,
+                ColMemo = "AA",
+                ColName = "BB",
+                ColType = "nvarchar(256)",
+                ModelID = resultMaster?.Data?.ModelID
+            };
+
+            BaseResultModel<ModelDetailOutputModel> resultDetail = this.ModelDetailService.ModifyModelDetail(inputModel);
+            Assert.IsTrue(resultDetail.IsSuccess, resultDetail.ErrorMessage);
+
+            //  新增动态表数据
             TableSelModel selTable = new TableSelModel()
             {
-                TableName = "tb_AcademicYear",
+                TableName = inputMaster.ModelCode,
                 ColSel = new List<TableColSelModel>() {
                     new TableColSelModel(){
-                        ColName="AcademicYearName",
-                        ColValue="AAA"
-                    },
-                    new TableColSelModel(){
-                        ColName="Term",
-                        ColValue="AAA"
-                    },
-                    new TableColSelModel(){
-                        ColName="InputStatus",
-                        ColValue="AAA"
+                        ColName=inputModel.ColName,
+                        ColValue="BBValue"
                     }
                 }
             };
@@ -98,45 +230,63 @@
         [TestMethod]
         public void MultiLineUpdateDynamicModel()
         {
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
+            // 新增动态表字段
+            ModelDetailInputModel inputModel = new ModelDetailInputModel()
+            {
+                ColIndex = 1,
+                ColMemo = "AA",
+                ColName = "BB",
+                ColType = "nvarchar(256)",
+                ModelID = resultMaster?.Data?.ModelID
+            };
+
+            BaseResultModel<ModelDetailOutputModel> resultDetail = this.ModelDetailService.ModifyModelDetail(inputModel);
+            Assert.IsTrue(resultDetail.IsSuccess, resultDetail.ErrorMessage);
+
+            // 新增动态表数据
             TableSelModel selTable = new TableSelModel()
             {
-                TableName = "tb_AcademicYear",
+                TableName = inputMaster.ModelCode,
                 ColSel = new List<TableColSelModel>() {
                     new TableColSelModel(){
-                        ColName="AcademicYearName",
-                        ColValue="AAA"
-                    },
-                    new TableColSelModel(){
-                        ColName="Term",
-                        ColValue="AAA"
-                    },
-                    new TableColSelModel(){
-                        ColName="InputStatus",
-                        ColValue="AAA"
+                        ColName=inputModel.ColName,
+                        ColValue="BBValue"
                     }
                 }
             };
             BaseResultModel<int> result = this.ModelService.InsertDynamicModel(selTable);
             Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
 
-            List<TableSelModel> inputModel = new List<TableSelModel>()
+            // 修改动态表数据
+            List<TableSelModel> inputModelTab = new List<TableSelModel>()
             {
                 new TableSelModel(){
-                TableName = "tb_AcademicYear",
+                TableName = inputMaster.ModelCode,
                 ColSel = new List<TableColSelModel>() {
                     new TableColSelModel(){
-                        ColName="AcademicYearName",
-                        ColValue="BBB"
+                        ColName=selTable.ColSel[0].ColName,
+                        ColValue="CCCValue"
                     }
                 },
                 WhereSel=new List<TableColSelModel>(){
-                        ColName="AcademicYearName",
-                        ColValue="AAA"
+                    new TableColSelModel(){
+                        ColName=selTable.ColSel[0].ColName,
+                        ColValue=selTable.ColSel[0].ColValue
+                }
                 }
                 }
             };
 
-            BaseResultModel<int> result = this.ModelService.MultiLineUpdateDynamicModel(inputModel);
+            result = this.ModelService.MultiLineUpdateDynamicModel(inputModelTab);
             Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
         }
 
@@ -146,21 +296,58 @@
         [TestMethod]
         public void DelDynamicTableList()
         {
-            List<TableSelModel> inputModel = new List<TableSelModel>()
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
+            // 新增动态表字段
+            ModelDetailInputModel inputModel = new ModelDetailInputModel()
+            {
+                ColIndex = 1,
+                ColMemo = "AA",
+                ColName = "BB",
+                ColType = "nvarchar(256)",
+                ModelID = resultMaster?.Data?.ModelID
+            };
+
+            BaseResultModel<ModelDetailOutputModel> resultDetail = this.ModelDetailService.ModifyModelDetail(inputModel);
+            Assert.IsTrue(resultDetail.IsSuccess, resultDetail.ErrorMessage);
+
+            //  新增动态表数据
+            TableSelModel selTable = new TableSelModel()
+            {
+                TableName = inputMaster.ModelCode,
+                ColSel = new List<TableColSelModel>() {
+                    new TableColSelModel(){
+                        ColName=inputModel.ColName,
+                        ColValue="BBValue"
+                    }
+                }
+            };
+            BaseResultModel<int> result = this.ModelService.InsertDynamicModel(selTable);
+            Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
+
+            // 删除动态表数据
+            List<TableSelModel> inputTabModel = new List<TableSelModel>()
             {
                 new TableSelModel(){
                 PageNO = 1,
                 PageSize = 20,
-                TableName = "tb_AcademicYear",
+                TableName = inputMaster.ModelCode,
                 WhereSel = new List<TableColSelModel>() {
                     new TableColSelModel(){
-                        ColName="Status",
-                        ColValue="2019"
+                        ColName=inputModel.ColName,
+                        ColValue="BBValue"
                     }
                 }
                 }
             };
-            BaseResultModel<int> result = this.ModelService.DelDynamicTableList(inputModel);
+            result = this.ModelService.DelDynamicTableList(inputTabModel);
             Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
         }
 
@@ -251,6 +438,15 @@
         [TestMethod]
         public void ModifyModelDetail()
         {
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
             // 新增动态表字段
             ModelDetailInputModel inputModel = new ModelDetailInputModel()
             {
@@ -258,7 +454,7 @@
                 ColMemo = "AA",
                 ColName = "BB",
                 ColType = "nvarchar(256)",
-                ModelID = Guid.Parse("b3bbdcc0-26c4-4756-b13b-e56918e49de4")
+                ModelID = resultMaster?.Data?.ModelID
             };
 
             BaseResultModel<ModelDetailOutputModel> result = this.ModelDetailService.ModifyModelDetail(inputModel);
@@ -272,7 +468,7 @@
                 ColMemo = "AA",
                 ColName = "BB",
                 ColType = "nvarchar(256)",
-                ModelID = Guid.Parse("b3bbdcc0-26c4-4756-b13b-e56918e49de4")
+                ModelID = resultMaster?.Data?.ModelID
             };
 
             result = this.ModelDetailService.ModifyModelDetail(inputModel);
@@ -287,21 +483,30 @@
         [TestMethod]
         public void DeleteModelDetail()
         {
-            // 新增动态字段表
+            // 新增表
+            ModelInputModel inputMaster = new ModelInputModel()
+            {
+                ModelCode = "tb_test",
+                ModelName = "测试表"
+            };
+            BaseResultModel<ModelOutputModel> resultMaster = this.ModelService.ModifyModel(inputMaster);
+            Assert.IsTrue(resultMaster.IsSuccess, resultMaster.ErrorMessage);
+
+            // 新增动态表字段
             ModelDetailInputModel inputModel = new ModelDetailInputModel()
             {
                 ColIndex = 1,
                 ColMemo = "AA",
                 ColName = "BB",
                 ColType = "nvarchar(256)",
-                ModelID = Guid.Parse("b3bbdcc0-26c4-4756-b13b-e56918e49de4")
+                ModelID = resultMaster?.Data?.ModelID
             };
 
             BaseResultModel<ModelDetailOutputModel> result = this.ModelDetailService.ModifyModelDetail(inputModel);
             Assert.IsTrue(result.IsSuccess, result.ErrorMessage);
 
             // 删除动态字段表
-            BaseResultModel<int> delResult = this.ModelDetailService.DeleteModelDetail(new List<Guid?> { result.Data.ModelID });
+            BaseResultModel<int> delResult = this.ModelDetailService.DeleteModelDetail(new List<Guid?> { result.Data.ModelDetailID });
             Assert.IsTrue(delResult.IsSuccess && delResult.Data > 0, delResult.ErrorMessage);
         }
 
