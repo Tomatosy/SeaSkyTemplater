@@ -109,7 +109,6 @@
     <Content Include="TomatoNTestSy.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TomatoNTestSy.cs</LastGenOutput>
-      <LastOutputs>.\Appraisals_Test.cs</LastOutputs>
     </Content>
   </ItemGroup>
   <ItemGroup>

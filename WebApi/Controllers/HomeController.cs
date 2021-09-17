@@ -15,8 +15,8 @@ namespace WebApi.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-            return View();
+            string url = Request.Url.ToString();
+            return Redirect(url + "/swagger");
         }
     }
 }

@@ -1,0 +1,529 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tomato.NewTempProject.Model</name>
+    </assembly>
+    <members>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumPersonnelMaintenanceType.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumPersonnelMaintenanceType.Office">
+            <summary>
+            事务所
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumPersonnelMaintenanceType.Teacher">
+            <summary>
+            老师
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value1">
+            <summary>
+            本单位经济目标（如KPI目标）完成情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value2">
+            <summary>
+            本单位经济活动中所做出的业绩及创新举措
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value3">
+            <summary>
+            本单位遵守国家财经法规、履行领导干部经济责任和执行学校财经制度情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value4">
+            <summary>
+            本单位“三重一大”决策的制定和执行情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value5">
+            <summary>
+            本单位预算执行以及财务收支的真实、合法和效益情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value6">
+            <summary>
+            本单位资产质量情况（如资产安全完整性）	
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value7">
+            <summary>
+            本单位内部管理制度（如资产管理、合同管理、公章管理、绩效分配管理等）的建立情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value8">
+            <summary>
+            本单位内部管理制度的执行情况和管理工作公开情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value9">
+            <summary>
+            被审计领导干部本人遵守有关廉政规定的情况（包括遵守廉洁从业规定和执行薪酬纪律情况）
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireType.Value10">
+            <summary>
+            对上一轮审计中发现问题的整改落实情况
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireValue.Good">
+            <summary>
+            好
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireValue.Better">
+            <summary>
+            较好
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireValue.Medium">
+            <summary>
+            中
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireValue.ComparePoor">
+            <summary>
+            较差
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireValue.Poor">
+            <summary>
+            差
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.Enum.EnumQuestionnaireValue.Abstained">
+            <summary>
+            弃权
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.Enum.EnumModel">
+            <summary>
+            枚举Model
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.Enum.EnumModel.EnumValue">
+            <summary>
+            枚举值   
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.Enum.EnumModel.EnumDes">
+            <summary>
+            枚举介绍
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.MenuInputModel">
+            <summary>
+            菜单输入扩展类
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.MenuModel">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.MenuID">
+            <summary>
+            菜单ID（主键）
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.ApplicationID">
+            <summary>
+            应用ID （外键）
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.MenuNo">
+            <summary>
+            菜单编号
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.MenuName">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.MenuIcon">
+            <summary>
+            菜单图标
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.ParentID">
+            <summary>
+            父级菜单ID
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.RoutingUrl">
+            <summary>
+            菜单路由地址
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.RedirectUrl">
+            <summary>
+            跳转地址
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.UrlParameter">
+            <summary>
+            路由（地址）参数
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.IsNewWindow">
+            <summary>
+            是否打开新页面
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.IsSystem">
+            <summary>
+            是否初始化（系统）菜单
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuModel.IsUse">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._menuID">
+             <summary>
+            菜单ID（主键）
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._applicationID">
+             <summary>
+            应用ID （外键）
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._menuNo">
+             <summary>
+            菜单编号
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._menuName">
+             <summary>
+            菜单名称
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._menuIcon">
+             <summary>
+            菜单图标
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._parentID">
+             <summary>
+            父级菜单ID
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._routingUrl">
+             <summary>
+            菜单路由地址
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._redirectUrl">
+             <summary>
+            跳转地址
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._urlParameter">
+             <summary>
+            路由（地址）参数
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._isNewWindow">
+             <summary>
+            是否打开新页面
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._isSystem">
+             <summary>
+            是否初始化（系统）菜单
+             </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.MenuModel._isUse">
+             <summary>
+            是否启用
+             </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.MenuViewModel">
+            <summary>
+            应用输出扩展类
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuViewModel.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.MenuOutputModel">
+            <summary>
+            应用输出扩展类
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.MenuOutputModel.Children">
+            <summary>
+            子集
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelDetailInputModel">
+            <summary>
+            模块明细表输入扩展类
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelDetailModel">
+            <summary>
+            模块明细表
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.ModelDetailID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.ModelID">
+            <summary>
+            项目编号
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.ColIndex">
+            <summary>
+            列序号
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.ColName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.ColMemo">
+            <summary>
+            文本备注
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.ColType">
+            <summary>
+            字段类型（文本、数字、日期、布尔、下拉框、附件）
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailModel.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._modelDetailID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._modelID">
+            <summary>
+            项目编号
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._colIndex">
+            <summary>
+            列序号
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._colName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._colMemo">
+            <summary>
+            文本备注
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._colType">
+            <summary>
+            字段类型（文本、数字、日期、布尔、下拉框、附件）
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailModel._isDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelDetailOutputModel">
+            <summary>
+            模块明细表输出扩展类
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelDetailViewModel">
+            <summary>
+            学年表输出扩展类
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailViewModel.ModelCode">
+            <summary>
+            主键编号
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelDetailViewModel.ModelName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailViewModel._modelCode">
+            <summary>
+            主键编号
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelDetailViewModel._modelName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelInputModel">
+            <summary>
+            模块表输入扩展类
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelModel">
+            <summary>
+            模块表
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelModel.ModelID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelModel.ModelCode">
+            <summary>
+            主键编号
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelModel.ModelName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelModel.MouldID">
+            <summary>
+            明细表模板ID（需要明细表时）
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelModel.OrderNum">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.ModelModel.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelModel._modelID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelModel._modelCode">
+            <summary>
+            主键编号
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelModel._modelName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelModel._mouldID">
+            <summary>
+            明细表模板ID（需要明细表时）
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelModel._orderNum">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="F:Tomato.NewTempProject.Model.ModelModel._isDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelOutputModel">
+            <summary>
+            模块表输出扩展类
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.Model.ModelViewModel">
+            <summary>
+            学年表输出扩展类
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableColSelModel.ColName">
+            <summary>
+            列名称
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableColSelModel.ColValue">
+            <summary>
+            列值
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.PageSize">
+            <summary>
+            页面条数
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.PageNO">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.TableName">
+            <summary>
+            表名称
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.OrderByName">
+            <summary>
+            排序名称
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.JoinMasterTableName">
+            <summary>
+            左连接主表名称
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.ColSel">
+            <summary>
+            列
+            </summary>
+        </member>
+        <member name="P:Tomato.NewTempProject.Model.TableSelModel.WhereSel">
+            <summary>
+            列查询条件
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.StringEx.HideTel(System.String)">
+            <summary>
+            隐藏手机号
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.StringEx.HideName(System.String)">
+            <summary>
+            影藏名称
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.StringEx.ToCase(System.String)">
+            <summary>
+            字符串处理
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

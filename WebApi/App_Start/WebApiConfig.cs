@@ -38,7 +38,7 @@ namespace WebApi
 #if RELEASE
              config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "{controller}/{action}/{id}",
+                routeTemplate: "NewTempProject/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 #endif

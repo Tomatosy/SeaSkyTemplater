@@ -63,9 +63,12 @@ namespace Tomato.StandardLib.DynamicPage
             dicOperator["ge"] = ">={0}";
             dicOperator["lt"] = "<{0}";
             dicOperator["le"] = "<={0}";
-            dicOperator["like"] = ".Contains({0})";
-            dicOperator["llike"] = ".StartsWith({0})";
-            dicOperator["rlike"] = ".EndsWith({0})";
+            dicOperator["like"] = "like %{0}%";
+            dicOperator["llike"] = "like %{0}";
+            dicOperator["rlike"] = "like {0}%";
+            //dicOperator["like"] = ".Contains({0})";
+            //dicOperator["llike"] = ".StartsWith({0})";
+            //dicOperator["rlike"] = ".EndsWith({0})";
             dicOperator["null"] = "=null";
             dicOperator["not-null"] = "!=null";
         }

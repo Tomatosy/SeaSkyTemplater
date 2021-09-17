@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tomato.NewTempProject.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Tomato.NewTempProject.WebApi.SwaggerControllerDescProvider">
+            <summary>
+            显示swagger控制器的描述
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.SwaggerControllerDescProvider.#ctor(Swashbuckle.Swagger.ISwaggerProvider,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="swaggerProvider"></param>
+            <param name="xml">xml文档路径</param>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.SwaggerControllerDescProvider.GetControllerDesc">
+            <summary>
+            从API文档中读取控制器描述
+            </summary>
+            <returns>所有控制器描述</returns>
+        </member>
+        <member name="T:Tomato.NewTempProject.WebApi.RequestLoginAttribute">
+            <summary>
+            需要登入
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.RequestLoginAttribute.#ctor">
+            <summary>
+            需要登入
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.RequestLoginAttribute.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            验证权限
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.RequestLoginAttribute.HandleUnauthorizedRequest(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            处理异常
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:Tomato.NewTempProject.WebApi.RequestAuthorizeAttribute">
+            <summary>
+            需要权限
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.RequestAuthorizeAttribute.#ctor">
+            <summary>
+            需要权限
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.RequestAuthorizeAttribute.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            验证权限
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.RequestAuthorizeAttribute.HandleUnauthorizedRequest(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            处理异常
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Common.CrosHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            异步发送 HTTP 请求到要发送到服务器的内部处理程序
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Common.HelperExt.ChunkBy``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            合并数组
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="chunkSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Common.HTTPHelper.PostRequest(System.String,Tomato.NewTempProject.WebApi.Common.DataTypeEnum,System.String)">
+            <summary>
+            Post带参请求
+            </summary>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="ContentType">指定参数类型</param>
+            <param name="strData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Common.HTTPHelper.GetRequest(System.String)">
+            <summary>
+            Get不带参请求
+            </summary>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="ContentType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tomato.NewTempProject.WebApi.Common.DataTypeEnum">
+            <summary>
+            带参数据类型
+            </summary>
+        </member>
+        <member name="T:Tomato.NewTempProject.WebApi.Common.MethodTypeEnum">
+            <summary>
+            带参数据类型
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.MenuController.ListPageMenu(Tomato.NewTempProject.Model.MenuOutputModel)">
+            <summary>
+            获取菜单列表分页
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.MenuController.ModifyMenu(Tomato.NewTempProject.Model.MenuInputModel)">
+            <summary>
+            新增、修改菜单
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.MenuController.DeleteMenu(System.Collections.Generic.List{System.Nullable{System.Guid}})">
+            <summary>
+            删除菜单 (逻辑删除)
+            </summary>
+            <param name="IDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.MenuController.GetMenu(System.Nullable{System.Guid})">
+            <summary>
+            获取单个项目管理
+            </summary>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.MenuController.ListAllMenuTree">
+            <summary>
+            查询所有有效的菜单树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.ListPageDynamicJoinModelList(Tomato.NewTempProject.Model.TableSelModel)">
+            <summary>
+            查询动态连接表分页
+            </summary>
+            <param name="model">ViewModel</param>
+            <returns>ViewModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.ListPageDynamicModelList(Tomato.NewTempProject.Model.TableSelModel)">
+            <summary>
+            查询动态表分页
+            </summary>
+            <param name="model">ViewModel</param>
+            <returns>ViewModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.InsertJoinDynamicModel(System.Collections.Generic.List{Tomato.NewTempProject.Model.TableSelModel})">
+            <summary>
+            新增主子动态模块表
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.InsertDynamicModel(Tomato.NewTempProject.Model.TableSelModel)">
+            <summary>
+            新增动态模块表
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.DelDynamicTableList(System.Collections.Generic.List{Tomato.NewTempProject.Model.TableSelModel})">
+            <summary>
+            删除动态模块表
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.MultiLineUpdateDynamicModel(System.Collections.Generic.List{Tomato.NewTempProject.Model.TableSelModel})">
+            <summary>
+            多行修改动态模块表
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.ListViewPageModel(Tomato.NewTempProject.Model.ModelViewModel)">
+            <summary>
+            获取模块表视图列表分页
+            </summary>
+            <param name="model">ViewModel</param>
+            <returns>ViewModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.ListPageModel(Tomato.NewTempProject.Model.ModelInputModel)">
+            <summary>
+            获取模块表列表分页
+            </summary>
+            <param name="model">InputModel</param>
+            <returns>OutputModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.ModifyModel(Tomato.NewTempProject.Model.ModelInputModel)">
+            <summary>
+            新增、修改模块表
+            </summary>
+            <param name="model">OutputModel</param>
+            <returns>OutputModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.DeleteModel(System.Collections.Generic.List{System.Nullable{System.Guid}})">
+            <summary>
+            删除模块表 (逻辑删除)
+            </summary>
+            <param name="IDs">List-->Guid?</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelController.GetModel(System.Nullable{System.Guid})">
+            <summary>
+            获取单个模块表
+            </summary>
+            <param name="ID">Guid?</param>
+            <returns>ViewModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelDetailController.ListViewPageModelDetail(Tomato.NewTempProject.Model.ModelDetailViewModel)">
+            <summary>
+            获取模块明细表视图列表分页
+            </summary>
+            <param name="model">ViewModel</param>
+            <returns>ViewModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelDetailController.ListPageModelDetail(Tomato.NewTempProject.Model.ModelDetailInputModel)">
+            <summary>
+            获取模块明细表列表分页
+            </summary>
+            <param name="model">InputModel</param>
+            <returns>OutputModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelDetailController.ModifyModelDetail(Tomato.NewTempProject.Model.ModelDetailInputModel)">
+            <summary>
+            新增、修改模块明细表
+            </summary>
+            <param name="model">OutputModel</param>
+            <returns>OutputModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelDetailController.DeleteModelDetail(System.Collections.Generic.List{System.Nullable{System.Guid}})">
+            <summary>
+            删除模块明细表 (逻辑删除)
+            </summary>
+            <param name="IDs">List-->Guid?</param>
+            <returns>受影响行数</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Controllers.ModelDetailController.GetModelDetail(System.Nullable{System.Guid})">
+            <summary>
+            获取单个模块明细表
+            </summary>
+            <param name="ID">Guid?</param>
+            <returns>ViewModel</returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Log.LogAttribute.SkipLogging(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            判断控制器和Action是否要进行拦截
+            </summary>
+            <param name="actionContext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.NewTempProject.WebApi.Log.LogAttribute.SkipLogging(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            判断控制器和Action是否要进行拦截
+            </summary>
+            <param name="actionContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Tomato.NewTempProject.WebApi.Log.NoLogAttribute">
+            <summary>
+            不需要日志记录的过滤器
+            </summary>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ExcelToTable(System.IO.Stream,System.String,System.Int32,System.Int32)">
+            <summary>
+            excel导入成DataTable
+            </summary>
+            <param name="ExcelFileStream">文件流</param>
+            <param name="SheetIndex">开始的sheet</param>
+            <param name="HeaderRowIndex">从第行开始读取</param>
+            <param name="fileExt">文件名，带.</param>
+            <returns>返回DataTable</returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ExcelToTable(System.Web.HttpPostedFile,System.Int32,System.Int32,System.String)">
+            <summary>
+            excel导入成DataTable
+            </summary>
+            <param name="ExcelFileStream">文件流</param>
+            <param name="SheetIndex">开始的sheet</param>
+            <param name="HeaderRowIndex">从第行开始读取</param>
+            <param name="fileExt">文件名，带.</param>
+            <returns>返回DataTable</returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.StreamFromDataTable(System.Data.DataTable,System.String)">
+            <summary>
+            DataTable转Excel转流
+            </summary>
+            <param name="dt"></param>
+            <param name="file">.xls,.xlsx</param>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.GetValueType(NPOI.SS.UserModel.ICell)">
+            <summary>
+            获取单元格类型
+            </summary>
+            <param name="cell"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ExcelToDataTable(System.String,System.String,System.Boolean)">
+            <summary>
+            通过文件路径转为DataTable
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="sheetName">设置文件名称</param>
+            <param name="isFirstRowColumn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.WriteSteamToFile(System.IO.MemoryStream,System.String)">
+            <summary>
+            流转文件
+            </summary>
+            <param name="ms"></param>
+            <param name="FileName"></param>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.WriteSteamToFile(System.Byte[],System.String)">
+            <summary>
+            字节   转文件
+            </summary>
+            <param name="data"></param>
+            <param name="FileName"></param>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.WorkBookToStream(NPOI.HSSF.UserModel.HSSFWorkbook)">
+            <summary>
+            HSSFWorkbook     -->Stream 
+            </summary>
+            <param name="InputWorkBook"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.StreamToWorkBook(System.IO.Stream)">
+            <summary>
+            Stream    -->HSSFWorkbook
+            </summary>
+            <param name="InputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.MemoryStreamToWorkBook(System.IO.MemoryStream)">
+            <summary>
+            MemoryStream    -->HSSFWorkbook
+            </summary>
+            <param name="InputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.WorkBookToMemoryStream(NPOI.HSSF.UserModel.HSSFWorkbook)">
+            <summary>
+            HSSFWorkbook    -->MemoryStream
+            </summary>
+            <param name="InputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.FileToStream(System.String)">
+            <summary>
+            File   -->   Stream
+            </summary>
+            <param name="FileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.MemoryStreamToStream(System.IO.MemoryStream)">
+            <summary>
+            MemoryStream   -->   Stream
+            </summary>
+            <param name="ms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.StreamToMemoryStream(System.IO.Stream)">
+            <summary>
+            Stream   -->   MemoryStream
+            </summary>
+            <param name="instream"></param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.Serialize(System.Object)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ListToExcel``1(System.Collections.Generic.IList{``0},System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            List对象导出Excel至浏览器下载
+            </summary>
+            <param name="list">泛型集合类</param>
+            <param name="fileName">生成的Excel文件名</param>
+            <param name="propertyName">Excel的字段列表</param>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ListToExcel(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            导出表头
+            </summary>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ListToExcelSaveServer``1(System.Collections.Generic.IList{``0},System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            List对象导出Excel至服务器
+            </summary>
+            <param name="list">泛型集合类</param>
+            <param name="fileName">生成的Excel文件名</param>
+            <param name="propertyName">Excel的字段列表</param>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ListToExcel``1(System.Collections.Generic.IList{``0},System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            List对象转流
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="list">List对象</param>
+            <param name="propertyNameList">表头属性</param>
+            <param name="fileName">文件名</param>
+            <returns>Excel文件流</returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ExcelToDataTable(System.Web.HttpPostedFile,System.String)">
+            <summary>
+            将Excel文件流导入到DataTable中
+            </summary>
+            <param name="file">指定Excel流文件访问权限</param>
+            <param name="sheetName">Excel工作薄sheet的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.ExcelToList``1(System.Web.HttpPostedFile,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            将Excel文件流导入到List中
+            </summary>
+            <param name="file">指定Excel流文件访问权限</param>
+            <param name="sheetName">Excel工作薄sheet的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.GetModelValue(System.String,System.Object)">
+            <summary>
+            遍历对象中的属性取值（ListToExcel）
+            </summary>
+            <param name="item">属性路径</param>
+            <param name="model">对象</param>
+            <returns>返回对应属性值</returns>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.StringToOtherType(System.String,System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            反射属性值类型转换（ExcelToList）
+            </summary>
+            <param name="value">值</param>
+            <param name="model">属性对象</param>
+            <param name="obj">绑定值</param>
+        </member>
+        <member name="M:Tomato.SumhsAuditPreWarning.WebApi.Common.NopiExcel.SetModelValue(System.String,System.Collections.Generic.List{System.Reflection.PropertyInfo},System.String,System.Object)">
+            <summary>
+            遍历对象中的属性赋值（ExcelToList）
+            </summary>
+            <param name="modelPropertyNames"></param>
+            <param name="propertys"></param>
+            <param name="itemValue"></param>
+            <param name="dataRow"></param>
+        </member>
+        <member name="M:PdfConverHelper.WordToPDF(System.String,System.String)">
+            <summary>
+            word转pdf
+            </summary>
+            <param name="wordPath">word路径</param>
+            <param name="pdfPath">pdf路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:PdfConverHelper.ExcelToPDF(System.String,System.String,Microsoft.Office.Interop.Excel.XlFixedFormatType)">
+            <summary>
+            Excel转Pdf
+            </summary>
+            <param name="sourcePath">word路径</param>
+            <param name="targetPath">pdf路径</param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PdfConverHelper.ConverToPdf(System.String,System.String)">
+            <summary>
+            转pdf
+            </summary>
+            <param name="inputPath">word路径</param>
+            <param name="pdfPath">pdf路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:WordTemplateHelper.WriteToPublicationOfResult(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            NPOI操作word
+            </summary>
+            <param name="TemplatePath">模板路径</param>
+            <param name="SavePath">保存路径</param>
+            <param name="keywords">关键字集合</param>
+        </member>
+        <member name="M:WordTemplateHelper.ReplaceKeyWords(System.Collections.Generic.IList{NPOI.XWPF.UserModel.XWPFParagraph},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            遍历段落，替换关键字
+            </summary>
+            <param name="Paragraphs">段落</param>
+            <param name="keywords">关键字集合</param>
+        </member>
+        <member name="M:WordTemplateHelper.getProperties``1(``0)">
+            <summary>
+            格式化关键字集合
+            </summary>
+            <typeparam name="T">泛型对象</typeparam>
+            <param name="t">关键字集对象</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
